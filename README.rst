@@ -1,4 +1,3 @@
-#####################################
 Mailboxes migration using OfflineIMAP
 #####################################
 
@@ -6,7 +5,6 @@ A simple `Modoboa <http://modoboa.org/>`_ extension which provides a
 way to migrate existing mailboxes using `OfflineIMAP
 <http://offlineimap.org/>`_.
 
-============
 Installation
 ============
 
@@ -30,7 +28,6 @@ whatever).
 Finally, activate the extension through the admin. panel (*Modoboa >
 Extensions*).
 
-=============
 Configuration
 =============
 
