@@ -1,0 +1,3 @@
+include README.rst COPYING requirements.txt
+recursive-include modoboa_imap_migration *.html *.js *.css *.png *.po *.mo *.json
+recursive-include doc *
