@@ -34,7 +34,6 @@ class Command(BaseCommand):
             "imap_server_port": parameters.get_admin("SERVER_PORT"),
             "imap_server_secured": parameters.get_admin("SECURED"),
             "migrations": Migration.objects.select_related().all(),
-            "maildir_suffix": parameters.get_admin("MAILDIR_SUFFIX")
         }
         with open(options["output"], "w") as fpo:
             content = render_to_string(
