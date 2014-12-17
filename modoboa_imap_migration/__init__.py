@@ -2,10 +2,13 @@
 Extension definition.
 """
 
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _, ugettext_lazy
 
 from modoboa.core.extensions import ModoExtension, exts_pool
-from modoboa.lib import parameters
+from modoboa.lib import parameters, events
+
+from .models import Migration
 
 
 class ImapMigration(ModoExtension):
@@ -29,3 +32,26 @@ class ImapMigration(ModoExtension):
         parameters.unregister()
 
 exts_pool.register_extension(ImapMigration)
+
+
+@events.observe("ExtraAccountActions")
+def extra_account_actions(account):
+    """Add a link to disable the migration of this account."""
+    if not account.mailbox_set.exists():
+        return []
+    migration = Migration.objects.filter(
+        mailbox=account.mailbox_set.first()).first()
+    if migration is not None:
+        return [{
+            "name": "cancel_migration",
+            "url": reverse(
+                "modoboa_imap_migration:migration_cancel", args=[migration.pk]
+            ),
+            "img": "fa fa-stop",
+            "title": _("Cancel this account's migration"),
+            "class": "ajaxcall",
+            "extra_attributes": {
+                "data-call_method": "DELETE"
+            }
+        }]
+    return []
