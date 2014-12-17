@@ -50,6 +50,7 @@ def extra_account_actions(account):
             "img": "fa fa-stop",
             "title": _("Cancel this account's migration"),
             "class": "ajaxcall",
+            "confirm": _("Cancel the migration for %s?") % account,
             "extra_attributes": {
                 "data-call_method": "DELETE"
             }
