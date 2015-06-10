@@ -81,7 +81,7 @@ msgstr "Annuler la migration de ce compte"
 #: modo_extension.py:49
 #, python-format
 msgid "Cancel the migration for %s?"
-msgstr "Annuler la migration de %s ?""
+msgstr "Annuler la migration de %s ?"
 
 #: views.py:22
 msgid "Unknow migration"
