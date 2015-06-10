@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-10 14:56+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app_settings.py:17
+msgid "Connection settings"
+msgstr "Paramètres de connexion"
+
+#: app_settings.py:20
+msgid "Server address"
+msgstr "Adresse du serveur"
+
+#: app_settings.py:22
+msgid "Address of your IMAP server"
+msgstr "Adresse de votre serveur IMAP"
+
+#: app_settings.py:26
+msgid "Use a secured connection"
+msgstr "Utiliser une connexion sécurisée"
+
+#: app_settings.py:28
+msgid "Use a secured connection to access IMAP server"
+msgstr "Utiliser une connexion sécurisée pour accéder au serveur IMAP"
+
+#: app_settings.py:32
+msgid "Server port"
+msgstr "Port du serveur"
+
+#: app_settings.py:34
+msgid "Listening port of your IMAP server"
+msgstr "Port d'écoute de votre serveur IMAP"
+
+#: app_settings.py:37
+msgid "OfflineIMAP settings"
+msgstr "Paramètres OfflineIMAP"
+
+#: app_settings.py:40
+msgid "Concurrent sync jobs"
+msgstr "Tâche(s) de synchronisation concurrente(s)"
+
+#: app_settings.py:42
+msgid "The maximum number of concurrent synchronization jobs"
+msgstr "Nombre maximal de tâche de synchronisation concurrente"
+
+#: auth_backends.py:36
+#, python-format
+msgid "Connection to IMAP server failed: %s"
+msgstr "Echec lors de la connexion au serveur IMAP : %s"
+
+#: modo_extension.py:19
+msgid "IMAP migration using OfflineIMAP"
+msgstr "Migration IMAP basée sur OfflineIMAP"
+
+#: modo_extension.py:22
+msgid "Migrate existing mailboxes using IMAP and OfflineIMAP"
+msgstr "Migrer des boites existantes en utilisant IMAP et OfflineIMAP"
+
+#: modo_extension.py:28
+msgid "IMAP migration"
+msgstr "Migration IMAP"
+
+#: modo_extension.py:47
+msgid "Cancel this account's migration"
+msgstr "Annuler la migration de ce compte"
+
+#: modo_extension.py:49
+#, python-format
+msgid "Cancel the migration for %s?"
+msgstr "Annuler la migration de %s ?""
+
+#: views.py:22
+msgid "Unknow migration"
+msgstr "Migration inconnue"
+
+#: views.py:26
+msgid "Migration cancelled successfully"
+msgstr "Migration annulée avec succès"
