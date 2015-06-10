@@ -1,6 +1,8 @@
 Mailboxes migration using OfflineIMAP
 =====================================
 
+|landscape|
+
 A simple `Modoboa <http://modoboa.org/>`_ extension which provides a
 way to migrate existing mailboxes using `OfflineIMAP
 <http://offlineimap.org/>`_.
@@ -30,3 +32,7 @@ Configuration
 
 All the configuration is done from the admin panel (*Modoboa >
 Parameters > IMAP migration*).
+
+.. |landscape| image:: https://landscape.io/github/modoboa/modoboa-imap-migration/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/modoboa/modoboa-imap-migration/master
+   :alt: Code Health
