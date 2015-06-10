@@ -1,1 +1,1 @@
-modoboa
+modoboa-admin

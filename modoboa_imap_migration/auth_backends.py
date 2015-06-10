@@ -7,11 +7,12 @@ import ssl
 
 from django.utils.translation import ugettext as _
 
-from modoboa.core.models import User
+from modoboa.core.models import User, populate_callback
 from modoboa.lib import parameters
 from modoboa.lib.exceptions import ModoboaException
-from modoboa.core.models import populate_callback
+
 from .models import Migration
+
 
 class IMAPBackend(object):
 
@@ -71,4 +72,3 @@ class IMAPBackend(object):
         except User.DoesNotExist:
             pass
         return user
-

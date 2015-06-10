@@ -25,9 +25,6 @@ like this::
 Restart the python process running modoboa (uwsgi, gunicorn, apache,
 whatever).
 
-Finally, activate the extension through the admin. panel (*Modoboa >
-Extensions*).
-
 Configuration
 -------------
 
