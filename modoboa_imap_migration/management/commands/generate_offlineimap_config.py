@@ -11,8 +11,8 @@ from modoboa.lib import parameters
 
 from modoboa_admin.modo_extension import AdminConsole
 
-from modoboa_imap_migration import ImapMigration
-from modoboa_imap_migration.models import Migration
+from ...modo_extension import ImapMigration
+from ...models import Migration
 
 
 class Command(BaseCommand):
