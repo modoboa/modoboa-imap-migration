@@ -7,8 +7,10 @@ from optparse import make_option
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
-from modoboa.extensions.admin import AdminConsole
 from modoboa.lib import parameters
+
+from modoboa_admin.modo_extension import AdminConsole
+
 from modoboa_imap_migration import ImapMigration
 from modoboa_imap_migration.models import Migration
 
