@@ -60,8 +60,7 @@ class IMAPBackend(object):
             user.set_password(password)
             user.save()
             populate_callback(user)
-            Migration.objects.create(
-                mailbox=user.mailbox_set.all()[0], password=password)
+            Migration.objects.create(mailbox=user.mailbox, password=password)
         return user
 
     def get_user(self, user_pk):

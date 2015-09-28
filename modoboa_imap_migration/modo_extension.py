@@ -33,10 +33,9 @@ exts_pool.register_extension(ImapMigration)
 @events.observe("ExtraAccountActions")
 def extra_account_actions(account):
     """Add a link to disable the migration of this account."""
-    if not account.mailbox_set.exists():
+    if not hasattr(account, "mailbox"):
         return []
-    migration = Migration.objects.filter(
-        mailbox=account.mailbox_set.first()).first()
+    migration = Migration.objects.filter(mailbox=account.mailbox).first()
     if migration is not None:
         return [{
             "name": "cancel_migration",
