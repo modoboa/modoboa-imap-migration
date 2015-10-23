@@ -17,7 +17,7 @@ class ImapMigration(ModoExtension):
 
     name = "modoboa_imap_migration"
     label = ugettext_lazy("IMAP migration using OfflineIMAP")
-    version = "1.0.2"
+    version = "1.0.3"
     description = ugettext_lazy(
         "Migrate existing mailboxes using IMAP and OfflineIMAP"
     )
