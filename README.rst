@@ -56,7 +56,9 @@ An IMAP authentication backend is provided by the extension and must
 be enabled.
 
 Edit the ``settings.py`` file and modify the
-``AUTHENTICATION_BACKENDS`` variable as follows::
+``AUTHENTICATION_BACKENDS`` variable as follows:
+
+.. sourcecode:: python
 
   AUTHENTICATION_BACKENDS = (
       'modoboa.lib.authbackends.SimpleBackend',
@@ -73,7 +75,9 @@ must be executed by the user which owns mailboxes (generally
 ``vmail``).
 
 Here is a configuration example where the script is executed every
-hours. You can copy it inside the ``/etc/cron.d/modoboa`` file::
+hours. You can copy it inside the ``/etc/cron.d/modoboa`` file:
+
+.. sourcecode:: shell
 
   PYTHON=/srv/modoboa/env/bin/python
   INSTANCE=/srv/modoboa/instance
@@ -111,7 +115,9 @@ called ``.offlineimap.py``:
       ).password
 
 Then, copy this file into the home directory of the user owning
-mailboxes (generally ``vmail``). For example::
+mailboxes (generally ``vmail``). For example:
+
+.. sourcecode:: shell
 
   $ cp .offlineimap.py /srv/vmail
   $ chown vmail:vmail /srv/vmail/.offlineimap.py
