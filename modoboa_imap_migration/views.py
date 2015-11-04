@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import (
     login_required, permission_required
 )
 
-from modoboa.lib.webutils import render_to_json_response
+from modoboa.lib.web_utils import render_to_json_response
 
 from .models import Migration
 

@@ -103,6 +103,9 @@ called ``.offlineimap.py``:
   sys.path.append("/srv/modoboa/instance")
   os.environ["DJANGO_SETTINGS_MODULE"] = "instance.settings"
 
+  import django
+  django.setup()
+
   from modoboa.core import load_core_settings
   from modoboa_imap_migration.models import Migration
 
