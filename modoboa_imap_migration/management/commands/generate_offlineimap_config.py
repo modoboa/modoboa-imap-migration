@@ -7,9 +7,9 @@ from optparse import make_option
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
+from modoboa.admin.app_settings import load_admin_settings
 from modoboa.lib import parameters
 
-from modoboa_admin.modo_extension import AdminConsole
 
 from ...modo_extension import ImapMigration
 from ...models import Migration
@@ -28,7 +28,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         """Entry point."""
-        AdminConsole().load()
+        load_admin_settings()
         ImapMigration().load()
 
         context = {
