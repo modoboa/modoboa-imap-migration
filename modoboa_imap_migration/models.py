@@ -4,9 +4,8 @@ IMAP migration models.
 
 from django.db import models
 
+from modoboa.admin.models import Mailbox
 from modoboa.lib.cryptutils import encrypt, decrypt
-
-from modoboa_admin.models import Mailbox
 
 
 class Migration(models.Model):

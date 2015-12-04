@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('modoboa_admin', '0003_domain_type'),
+        ('admin', '__first__'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('_password', models.CharField(max_length=100)),
-                ('mailbox', models.ForeignKey(to='modoboa_admin.Mailbox')),
+                ('mailbox', models.ForeignKey(to='admin.Mailbox')),
             ],
             options={
             },
