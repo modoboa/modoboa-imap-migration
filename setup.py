@@ -55,7 +55,7 @@ def read(fname):
 
 setup(
     name="modoboa-imap-migration",
-    version='1.0.3',
+    version='1.0.4',
     url='http://modoboa.org/',
     license='MIT',
     description="A plugin to migrate mailboxes using IMAP",
