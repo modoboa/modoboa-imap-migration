@@ -106,10 +106,7 @@ called ``.offlineimap.py``:
   import django
   django.setup()
 
-  from modoboa.core import load_core_settings
   from modoboa_imap_migration.models import Migration
-
-  load_core_settings()
 
   def get_user_password(username):
       """Retrieve a password from Modoboa's database."""
