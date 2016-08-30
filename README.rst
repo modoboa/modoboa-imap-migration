@@ -44,6 +44,12 @@ like this::
 Restart the python process running modoboa (uwsgi, gunicorn, apache,
 whatever).
 
+Run the following commands to setup the database tables::
+
+  $ cd <modoboa_instance_dir>
+  $ python manage.py migrate modoboa_imap_migration
+  $ python manage.py load_initial_data
+
 You also need to `install <http://offlineimap.org/doc/installation.html>`_ OfflineIMAP.
 
 Configuration
