@@ -5,6 +5,8 @@ import os
 import re
 from setuptools import setup, find_packages
 
+from modoboa_imap_migration import __version__
+
 ROOT = os.path.dirname(__file__)
 PIP_REQUIRES = os.path.join(ROOT, "requirements.txt")
 
@@ -55,7 +57,7 @@ def read(fname):
 
 setup(
     name="modoboa-imap-migration",
-    version='1.0.4',
+    version=__version__,
     url='http://modoboa.org/',
     license='MIT',
     description="A plugin to migrate mailboxes using IMAP",
