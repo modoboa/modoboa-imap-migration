@@ -1,20 +1,18 @@
-"""
-Online settings for the IMAP migration.
-"""
+"""IMAP migration forms."""
+
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from modoboa.lib.parameters import AdminParametersForm
-from modoboa.lib.form_utils import SeparatorField, YesNoField
+from modoboa.lib import form_utils
+from modoboa.parameters import forms as param_forms
 
 
-class ParametersForm(AdminParametersForm):
-
+class ParametersForm(param_forms.AdminParametersForm):
     """IMAP migration settings."""
 
     app = "modoboa_imap_migration"
 
-    sep1 = SeparatorField(label=_("Connection settings"))
+    sep1 = form_utils.SeparatorField(label=_("Connection settings"))
 
     server_address = forms.CharField(
         label=_("Server address"),
@@ -22,9 +20,9 @@ class ParametersForm(AdminParametersForm):
         help_text=_("Address of your IMAP server")
     )
 
-    secured = YesNoField(
+    secured = form_utils.YesNoField(
         label=_("Use a secured connection"),
-        initial="no",
+        initial=False,
         help_text=_("Use a secured connection to access IMAP server")
     )
 
@@ -34,7 +32,7 @@ class ParametersForm(AdminParametersForm):
         help_text=_("Listening port of your IMAP server")
     )
 
-    sep2 = SeparatorField(label=_("OfflineIMAP settings"))
+    sep2 = form_utils.SeparatorField(label=_("OfflineIMAP settings"))
 
     max_sync_accounts = forms.IntegerField(
         label=_("Concurrent sync jobs"),

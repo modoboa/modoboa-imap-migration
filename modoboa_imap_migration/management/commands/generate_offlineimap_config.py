@@ -1,6 +1,4 @@
-"""
-A management command to create an offlineimap configuration file.
-"""
+"""A management command to create an offlineimap configuration file."""
 
 from optparse import make_option
 
@@ -8,8 +6,7 @@ from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
 from modoboa.admin.app_settings import load_admin_settings
-from modoboa.lib import parameters
-
+from modoboa.parameters import tools as param_tools
 
 from ...modo_extension import ImapMigration
 from ...models import Migration
@@ -30,11 +27,12 @@ class Command(BaseCommand):
         """Entry point."""
         load_admin_settings()
         ImapMigration().load()
-
+        conf = dict(
+            param_tools.get_global_parameters("modoboa_imap_migration"))
         context = {
-            "imap_server_address": parameters.get_admin("SERVER_ADDRESS"),
-            "imap_server_port": parameters.get_admin("SERVER_PORT"),
-            "imap_server_secured": parameters.get_admin("SECURED"),
+            "imap_server_address": conf["server_address"],
+            "imap_server_port": conf["server_port"],
+            "imap_server_secured": conf["secured"],
             "migrations": Migration.objects.select_related().all(),
         }
         with open(options["output"], "w") as fpo:
