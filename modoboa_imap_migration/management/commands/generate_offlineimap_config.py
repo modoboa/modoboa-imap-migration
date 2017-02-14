@@ -1,7 +1,5 @@
 """A management command to create an offlineimap configuration file."""
 
-from optparse import make_option
-
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
@@ -13,15 +11,15 @@ from ...models import Migration
 
 
 class Command(BaseCommand):
-
     """Command definition."""
 
     help = "Generate an offlineimap configuration file."
 
-    option_list = BaseCommand.option_list + (
-        make_option("--output", default="/tmp/offlineimap.conf",
-                    help="Path of the generated file"),
-    )
+    def add_argument(self, parser):
+        """Add extra arguments to command line."""
+        parser.add_argument(
+            "--output", default="/tmp/offlineimap.conf",
+            help="Path of the generated file")
 
     def handle(self, *args, **options):
         """Entry point."""
