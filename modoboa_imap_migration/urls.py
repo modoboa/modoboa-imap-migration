@@ -1,10 +1,10 @@
 """Custom urls."""
 
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
-urlpatterns = patterns(
-    "modoboa_imap_migration.views",
+from . import views
 
-    url(r"^migration/(?P<migration_pk>\d+)/delete/'$", "cancel_migration",
+urlpatterns = [
+    url(r"^migration/(?P<migration_pk>\d+)/delete/'$", views.cancel_migration,
         name="migration_cancel"),
-)
+]

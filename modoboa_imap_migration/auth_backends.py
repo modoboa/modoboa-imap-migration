@@ -1,6 +1,5 @@
-"""
-IMAP authentication backend for Django.
-"""
+"""IMAP authentication backend for Django."""
+
 import imaplib
 import socket
 import ssl
@@ -8,8 +7,8 @@ import ssl
 from django.utils.translation import ugettext as _
 
 from modoboa.core.models import User, populate_callback
-from modoboa.lib import parameters
 from modoboa.lib.exceptions import ModoboaException
+from modoboa.parameters import tools as param_tools
 
 from .models import Migration
 
@@ -24,10 +23,12 @@ class IMAPBackend(object):
             username = username.encode("utf-8")
         if type(password) is unicode:
             password = password.encode("utf-8")
-        address = parameters.get_admin("SERVER_ADDRESS")
-        port = int(parameters.get_admin("SERVER_PORT"))
+        conf = dict(
+            param_tools.get_global_parameters("modoboa_imap_migration"))
+        address = conf["server_address"]
+        port = conf["server_port"]
         try:
-            if parameters.get_admin("SECURED") == "yes":
+            if conf["secured"]:
                 conn = imaplib.IMAP4_SSL(address, port)
             else:
                 conn = imaplib.IMAP4(address, port)
