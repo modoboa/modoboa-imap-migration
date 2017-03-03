@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Giannis Kapetanakis <bilias@edu.physics.uoc.gr>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Modoboa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-03 09:26+0100\n"
+"PO-Revision-Date: 2016-11-09 16:13+0000\n"
+"Last-Translator: Giannis Kapetanakis <bilias@edu.physics.uoc.gr>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/tonio/modoboa/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: auth_backends.py:37
+#, python-format
+msgid "Connection to IMAP server failed: %s"
+msgstr "Παρουσιάστηκε σφάλμα στη σύνδεση με τον εξυπηρετητή IMAP: %s"
+
+#: forms.py:15
+msgid "Connection settings"
+msgstr "Ρυθμίσεις σύνδεσης"
+
+#: forms.py:18
+msgid "Server address"
+msgstr "Διεύθυνση εξυπηρετητή"
+
+#: forms.py:20
+msgid "Address of your IMAP server"
+msgstr "Η διεύθυνση του εξυπηρετητή IMAP"
+
+#: forms.py:24
+msgid "Use a secured connection"
+msgstr "Χρήση ασφαλής σύνδεσης"
+
+#: forms.py:26
+msgid "Use a secured connection to access IMAP server"
+msgstr "Χρήση ασφαλής σύνδεσης με τον εξυπηρετητή IMAP"
+
+#: forms.py:30
+msgid "Server port"
+msgstr "Πόρτα εξυπηρετητή"
+
+#: forms.py:32
+msgid "Listening port of your IMAP server"
+msgstr "Η πόρτα λειτουργίας του εξυπηρετητή IMAP"
+
+#: forms.py:35
+msgid "OfflineIMAP settings"
+msgstr "Ρυθμίσεις OfflineIMAP"
+
+#: forms.py:38
+msgid "Concurrent sync jobs"
+msgstr "Ταυτόχρονες εργασίες συγχρονισμού"
+
+#: forms.py:40
+msgid "The maximum number of concurrent synchronization jobs"
+msgstr "Ο μέγιστος αριθμός ταυτόχρονων εργασιών συγχρονισμού"
+
+#: handlers.py:24
+msgid "Cancel this account's migration"
+msgstr "Ακύρωση της μετάβασης αυτού του λογαριασμού"
+
+#: handlers.py:26
+#, python-format
+msgid "Cancel the migration for %s?"
+msgstr "Ακύρωση της μετάβασης του %s;"
+
+#: modo_extension.py:16
+msgid "IMAP migration using OfflineIMAP"
+msgstr "Μετάβαση IMAP με χρήση του OfflineIMAP"
+
+#: modo_extension.py:19
+msgid "Migrate existing mailboxes using IMAP and OfflineIMAP"
+msgstr "Μετάβαση υπαρχόντων γραμματοκιβωτίων με χρήση IMAP και του OfflineIMAP"
+
+#: modo_extension.py:25
+msgid "IMAP migration"
+msgstr "Μετάβαση IMAP"
+
+#: views.py:22
+msgid "Unknow migration"
+msgstr "Άγνωστη μετάβαση"
+
+#: views.py:26
+msgid "Migration cancelled successfully"
+msgstr "Η μετάβαση ακυρώθηκε με επιτυχία"

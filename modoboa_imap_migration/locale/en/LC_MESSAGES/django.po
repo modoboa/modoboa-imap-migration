@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 14:56+0200\n"
+"POT-Creation-Date: 2017-03-03 09:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,70 +17,70 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app_settings.py:17
-msgid "Connection settings"
-msgstr ""
-
-#: app_settings.py:20
-msgid "Server address"
-msgstr ""
-
-#: app_settings.py:22
-msgid "Address of your IMAP server"
-msgstr ""
-
-#: app_settings.py:26
-msgid "Use a secured connection"
-msgstr ""
-
-#: app_settings.py:28
-msgid "Use a secured connection to access IMAP server"
-msgstr ""
-
-#: app_settings.py:32
-msgid "Server port"
-msgstr ""
-
-#: app_settings.py:34
-msgid "Listening port of your IMAP server"
-msgstr ""
-
-#: app_settings.py:37
-msgid "OfflineIMAP settings"
-msgstr ""
-
-#: app_settings.py:40
-msgid "Concurrent sync jobs"
-msgstr ""
-
-#: app_settings.py:42
-msgid "The maximum number of concurrent synchronization jobs"
-msgstr ""
-
-#: auth_backends.py:36
+#: auth_backends.py:37
 #, python-format
 msgid "Connection to IMAP server failed: %s"
 msgstr ""
 
-#: modo_extension.py:19
-msgid "IMAP migration using OfflineIMAP"
+#: forms.py:15
+msgid "Connection settings"
 msgstr ""
 
-#: modo_extension.py:22
-msgid "Migrate existing mailboxes using IMAP and OfflineIMAP"
+#: forms.py:18
+msgid "Server address"
 msgstr ""
 
-#: modo_extension.py:28
-msgid "IMAP migration"
+#: forms.py:20
+msgid "Address of your IMAP server"
 msgstr ""
 
-#: modo_extension.py:47
+#: forms.py:24
+msgid "Use a secured connection"
+msgstr ""
+
+#: forms.py:26
+msgid "Use a secured connection to access IMAP server"
+msgstr ""
+
+#: forms.py:30
+msgid "Server port"
+msgstr ""
+
+#: forms.py:32
+msgid "Listening port of your IMAP server"
+msgstr ""
+
+#: forms.py:35
+msgid "OfflineIMAP settings"
+msgstr ""
+
+#: forms.py:38
+msgid "Concurrent sync jobs"
+msgstr ""
+
+#: forms.py:40
+msgid "The maximum number of concurrent synchronization jobs"
+msgstr ""
+
+#: handlers.py:24
 msgid "Cancel this account's migration"
 msgstr ""
 
-#: modo_extension.py:49
+#: handlers.py:26
 #, python-format
 msgid "Cancel the migration for %s?"
+msgstr ""
+
+#: modo_extension.py:16
+msgid "IMAP migration using OfflineIMAP"
+msgstr ""
+
+#: modo_extension.py:19
+msgid "Migrate existing mailboxes using IMAP and OfflineIMAP"
+msgstr ""
+
+#: modo_extension.py:25
+msgid "IMAP migration"
 msgstr ""
 
 #: views.py:22

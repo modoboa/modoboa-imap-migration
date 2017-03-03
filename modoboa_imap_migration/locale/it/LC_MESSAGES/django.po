@@ -1,92 +1,93 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
+# Translators:
+# Rocco <mors10@hotmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 09:26+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2016-11-09 16:13+0000\n"
+"Last-Translator: Rocco <mors10@hotmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/tonio/modoboa/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: auth_backends.py:37
 #, python-format
 msgid "Connection to IMAP server failed: %s"
-msgstr "Echec lors de la connexion au serveur IMAP : %s"
+msgstr "Conennessione al server IMAP fallito: %s"
 
 #: forms.py:15
 msgid "Connection settings"
-msgstr "Paramètres de connexion"
+msgstr "Impostazioni di connessione"
 
 #: forms.py:18
 msgid "Server address"
-msgstr "Adresse du serveur"
+msgstr "Indirizzo del Server"
 
 #: forms.py:20
 msgid "Address of your IMAP server"
-msgstr "Adresse de votre serveur IMAP"
+msgstr "Indirizzo del server IMAP"
 
 #: forms.py:24
 msgid "Use a secured connection"
-msgstr "Utiliser une connexion sécurisée"
+msgstr "Utilizza connessione sicura"
 
 #: forms.py:26
 msgid "Use a secured connection to access IMAP server"
-msgstr "Utiliser une connexion sécurisée pour accéder au serveur IMAP"
+msgstr "Utilizza una connessione sicura per l'accesso al server IMAP"
 
 #: forms.py:30
 msgid "Server port"
-msgstr "Port du serveur"
+msgstr "Porta del server"
 
 #: forms.py:32
 msgid "Listening port of your IMAP server"
-msgstr "Port d'écoute de votre serveur IMAP"
+msgstr "Porta in ascolto del server IMAP"
 
 #: forms.py:35
 msgid "OfflineIMAP settings"
-msgstr "Paramètres OfflineIMAP"
+msgstr "Impostazioni OfflineIMAP"
 
 #: forms.py:38
 msgid "Concurrent sync jobs"
-msgstr "Tâche(s) de synchronisation concurrente(s)"
+msgstr "Sincronizzazioni contemporanee"
 
 #: forms.py:40
 msgid "The maximum number of concurrent synchronization jobs"
-msgstr "Nombre maximal de tâche de synchronisation concurrente"
+msgstr "Il numero massimo si sincronizzazioni contemporanee"
 
 #: handlers.py:24
 msgid "Cancel this account's migration"
-msgstr "Annuler la migration de ce compte"
+msgstr "Cancellare l'account di questa migrazione"
 
 #: handlers.py:26
 #, python-format
 msgid "Cancel the migration for %s?"
-msgstr "Annuler la migration de %s ?"
+msgstr "Cancellare la migrazione %s?"
 
 #: modo_extension.py:16
 msgid "IMAP migration using OfflineIMAP"
-msgstr "Migration IMAP basée sur OfflineIMAP"
+msgstr "Migrazione IMAP utilizzado OfflineIMAP"
 
 #: modo_extension.py:19
 msgid "Migrate existing mailboxes using IMAP and OfflineIMAP"
-msgstr "Migrer des boites existantes en utilisant IMAP et OfflineIMAP"
+msgstr "Migrare caselle di posta elettronica utilizzando IMAP e OfflineIMAP"
 
 #: modo_extension.py:25
 msgid "IMAP migration"
-msgstr "Migration IMAP"
+msgstr "Migrazione IMAP"
 
 #: views.py:22
 msgid "Unknow migration"
-msgstr "Migration inconnue"
+msgstr "Migrazione sconosciuta"
 
 #: views.py:26
 msgid "Migration cancelled successfully"
-msgstr "Migration annulée avec succès"
+msgstr "Migrazione avvenuta con successo"
