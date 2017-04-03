@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
     help = "Generate an offlineimap configuration file."
 
-    def add_argument(self, parser):
+    def add_arguments(self, parser):
         """Add extra arguments to command line."""
         parser.add_argument(
             "--output", default="/tmp/offlineimap.conf",
@@ -31,7 +31,7 @@ class Command(BaseCommand):
             "imap_server_address": conf["server_address"],
             "imap_server_port": conf["server_port"],
             "imap_server_secured": conf["secured"],
-            "migrations": Migration.objects.select_related().all(),
+            "migrations": Migration.objects.select_related("mailbox").all(),
         }
         with open(options["output"], "w") as fpo:
             content = render_to_string(
