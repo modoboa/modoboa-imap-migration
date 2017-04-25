@@ -67,7 +67,7 @@ Edit the ``settings.py`` file and modify the
 .. sourcecode:: python
 
   AUTHENTICATION_BACKENDS = (
-      'modoboa.lib.authbackends.SimpleBackend',
+      'django.contrib.auth.backends.ModelBackend',
       'modoboa_imap_migration.auth_backends.IMAPBackend',
   )
 
