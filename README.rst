@@ -109,7 +109,6 @@ called ``.offlineimap.py``:
   sys.path.append("/srv/modoboa/instance")
   os.environ["DJANGO_SETTINGS_MODULE"] = "instance.settings"
 
-  import django
   from django.apps import apps
   from django.conf import settings
   apps.populate(settings.INSTALLED_APPS)
