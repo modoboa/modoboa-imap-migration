@@ -39,3 +39,25 @@ class ParametersForm(param_forms.AdminParametersForm):
         initial=1,
         help_text=_("The maximum number of concurrent synchronization jobs")
     )
+
+    sep2 = form_utils.SeparatorField(label=_("OfflineIMAP Filter settings"))
+
+    create_folders = form_utils.YesNoField(
+        label=_("Create Folders"),
+        initial=True,
+        help_text=_("Allow Creation of missing folders during sync")
+    )
+
+    folder_filter_exclude = forms.CharField(
+        required=False,
+        label=_("Folder Filter Exclusions"),
+        initial="",
+        help_text=_("Use a regular expression to explicitly include folders in sync. Example: ^Trash$|Del")
+    )
+
+    folder_filter_include = forms.CharField(
+        required=False,
+        label=_("Folder Filter Inclusions"),
+        initial="",
+        help_text=_("A comma seperated list of folders to explicitly include in sync even if filtered by the Folder Filter Exclusions. Example: debian.user, debian.personal ")
+    )
