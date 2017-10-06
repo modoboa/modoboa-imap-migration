@@ -110,7 +110,9 @@ called ``.offlineimap.py``:
   os.environ["DJANGO_SETTINGS_MODULE"] = "instance.settings"
 
   import django
-  django.setup()
+  from django.apps import apps
+  from django.conf import settings
+  apps.populate(settings.INSTALLED_APPS)
 
   from modoboa_imap_migration.models import Migration
 
