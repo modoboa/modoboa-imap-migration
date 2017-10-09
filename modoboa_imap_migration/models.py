@@ -13,7 +13,7 @@ class Migration(models.Model):
     """Represent mailboxes to migrate."""
 
     mailbox = models.ForeignKey(Mailbox)
-    _password = models.CharField(max_length=100)
+    _password = models.CharField(max_length=255)
 
     def __unicode__(self):
         return self.mailbox.full_address
