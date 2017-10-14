@@ -52,12 +52,19 @@ class ParametersForm(param_forms.AdminParametersForm):
         required=False,
         label=_("Folder Filter Exclusions"),
         initial="",
-        help_text=_("Use a regular expression to explicitly include folders in sync. Example: ^Trash$|Del")
+        help_text=_(
+            "Use a regular expression to explicitly include folders in sync. "
+            "Example: ^Trash$|Del"
+        )
     )
 
     folder_filter_include = forms.CharField(
         required=False,
         label=_("Folder Filter Inclusions"),
         initial="",
-        help_text=_("A comma seperated list of folders to explicitly include in sync even if filtered by the Folder Filter Exclusions. Example: debian.user, debian.personal ")
+        help_text=_(
+            "A comma seperated list of folders to explicitly include in sync "
+            "even if filtered by the Folder Filter Exclusions. Example: "
+            "debian.user, debian.personal "
+        )
     )
