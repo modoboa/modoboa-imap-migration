@@ -1,7 +1,7 @@
 Mailboxes migration using OfflineIMAP
 =====================================
 
-|landscape|
+|travis| |codecov| |landscape|
 
 A simple `Modoboa <http://modoboa.org/>`_ extension which provides a
 way to migrate existing mailboxes using `OfflineIMAP
@@ -140,3 +140,9 @@ Parameters > IMAP migration*).
 .. |landscape| image:: https://landscape.io/github/modoboa/modoboa-imap-migration/master/landscape.svg?style=flat
    :target: https://landscape.io/github/modoboa/modoboa-imap-migration/master
    :alt: Code Health
+
+.. |travis| image:: https://travis-ci.org/modoboa/modoboa-imap-migration.svg?branch=master
+   :target: https://travis-ci.org/modoboa/modoboa-imap-migration
+
+.. |codecov| image:: https://codecov.io/gh/modoboa/modoboa-imap-migration/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/modoboa/modoboa-imap-migration
