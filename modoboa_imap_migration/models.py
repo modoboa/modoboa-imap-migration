@@ -3,19 +3,20 @@ IMAP migration models.
 """
 
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
 from modoboa.admin.models import Mailbox
 from modoboa.lib.cryptutils import encrypt, decrypt
 
 
+@python_2_unicode_compatible
 class Migration(models.Model):
-
     """Represent mailboxes to migrate."""
 
     mailbox = models.ForeignKey(Mailbox)
     _password = models.CharField(max_length=255)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.mailbox.full_address
 
     @property
