@@ -33,8 +33,10 @@ class Command(BaseCommand):
             "imap_server_secured": conf["secured"],
             "imap_create_folders": conf["create_folders"],
             "imap_folder_filter_exclude": conf["folder_filter_exclude"],
-            "imap_folder_filter_include": ', '.join("'{0}'".format(w) for w in conf["folder_filter_include"].split(",")),
-            "migrations": Migration.objects.select_related("mailbox").all(),
+            "imap_folder_filter_include": ", ".join(
+                "'{0}'".format(w)
+                for w in conf["folder_filter_include"].split(",")),
+            "migrations": Migration.objects.select_related("mailbox"),
         }
         with open(options["output"], "w") as fpo:
             content = render_to_string(

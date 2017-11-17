@@ -4,6 +4,7 @@ import imaplib
 import socket
 import ssl
 
+from django.utils.encoding import smart_bytes
 from django.utils.translation import ugettext as _
 
 from modoboa.core.models import User, populate_callback
@@ -19,10 +20,6 @@ class IMAPBackend(object):
 
     def authenticate(self, username=None, password=None):
         """Check the username/password and return a User."""
-        if type(username) is unicode:
-            username = username.encode("utf-8")
-        if type(password) is unicode:
-            password = password.encode("utf-8")
         conf = dict(
             param_tools.get_global_parameters("modoboa_imap_migration"))
         address = conf["server_address"]
@@ -34,10 +31,11 @@ class IMAPBackend(object):
                 conn = imaplib.IMAP4(address, port)
         except (socket.error, imaplib.IMAP4.error, ssl.SSLError) as error:
             raise ModoboaException(
-                _("Connection to IMAP server failed: %s" % error))
+                _("Connection to IMAP server failed: %s") % error)
 
         try:
-            typ, data = conn.login(username, password)
+            typ, data = conn.login(
+                smart_bytes(username), smart_bytes(password))
         except imaplib.IMAP4.error:
             typ = "NO"
         conn.logout()
