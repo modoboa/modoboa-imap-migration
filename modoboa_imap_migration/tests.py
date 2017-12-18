@@ -8,7 +8,7 @@ import mock
 from six.moves import configparser
 
 from django.core.management import call_command
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from modoboa.admin import factories as admin_factories
 from modoboa.admin import models as admin_models

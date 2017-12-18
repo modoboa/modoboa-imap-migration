@@ -13,7 +13,7 @@ from modoboa.lib.cryptutils import encrypt, decrypt
 class Migration(models.Model):
     """Represent mailboxes to migrate."""
 
-    mailbox = models.ForeignKey(Mailbox)
+    mailbox = models.ForeignKey(Mailbox, on_delete=models.CASCADE)
     _password = models.CharField(max_length=255)
 
     def __str__(self):
