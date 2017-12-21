@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('_password', models.CharField(max_length=100)),
-                ('mailbox', models.ForeignKey(to='admin.Mailbox')),
+                ('mailbox', models.ForeignKey(to='admin.Mailbox', on_delete=models.CASCADE)),
             ],
             options={
             },
