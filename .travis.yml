@@ -1,9 +1,9 @@
 language: python
 python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
-  - "3.6"
+  - '2.7'
+  - '3.4'
+  - '3.5'
+  - '3.6'
 
 env:
   global:
@@ -17,8 +17,8 @@ sudo: false
 cache: pip
 
 addons:
-  postgresql: "9.3"
-  mysql: "5.5"
+  postgresql: '9.3'
+  mysql: '5.5'
 
 before_install:
   - pip install codecov
@@ -45,10 +45,10 @@ deploy:
   provider: pypi
   user: tonio
   password:
-    secure: vDpojbQnBdmXXfzJdwWhLbVHyFXpSC0glYNk42rbfzdwQnAA9rbXxzX683OcBZPhqozHwCkazOQmDzzBU/Vue4hgAz5U5rLemMQp288urVUQrt2IPwfWyXe+Cgu9CebiwhWDh4tgWBiFvNySmpuP0xJRVi0oKkWoEM+dcfsTa7OSuCx/e8eRA35fWIo7/xyxc1Gl1sdg0J+TwQJV6EyUxvhTzqP0PoZSGLkOHE+SOZJyM8UAo48VV5+uFqKVae33tsIhJBJu6/LvWFFu0Yedr/DqjZ8OY5tTU86Bn+MblBM8LmKpKI1XNxgULL7+GXS1c1YIo5Wbw8esEHJq5ro7eqXe/KnDar8l4/+MPExlQsmjkOxwvWAF45VMfFm5oVXZYsD8giD+a6EFT6ELDOKb973fDLKZLmNToZRNWkbBDTrcd/ppElswTORMkHhew/W7UuXtEQxNKWcUETuuViyPNMFrTy3SZ8oIuG2hqbx3wIrj34PlxSJGHSRlE7aLwG5whnkgkEFN9bfvfqpsowrHnqbBfgUJt07uV0bKEjwqEz55PALRhDjRoGkvtDkPJjnJvwY+ieC2VKyLNzZBi2iw/Mh6peyK0oTgCzdpUvSLRuiNzpWf+jpGE0aOWxcwcdEA6a4aTJXivMgg5/4Jbvs+NbjNgTfXdOApMWkxu2aCNWI=
+    secure: YJIvg4It4OefyLzqfunMZV6wIiXBC/txpw/sWPPAvZqzcES+RdQ9maFIQ/wohV2HfncvVd2NEOItpouABJ9q7TFUC219l6X3FETXZe7rz47sKVpVTGU/jMXr13Zi9Bbb19r3U28ohJpDrkUggHeOnWxNAtvTbbORFDQFJEVKyw6KypLCGpKjCTb6EVC5AlXwPycERz+IY8kgNFrPjIMrbfYWVDUS6PzG017XZq+LLKrVLLRg1+aLnqS6t/mg9c/Agel7wPmrWOkVPsnio4XEQhGwmz+wPGKPvCwx2t2tzQYEmFlHmJoZxLwqdKAMwBNJcbEU4dnZUijp9u1qem01+VVfOR6vwuuc4EL7PPhzf2afJI7May9484ouRVKVYQYA9OzDI/+/e3lxlHhFpjQ/oyaxBORKhYOd5avQKbxzvMm8wvjqqs0k+4GJ6PVbjoD8Zh4Lpe0Ky7NkKNtJfnqQZPSKhAnGcl8ueTvyS+sB5WxdplUHI+rTGxrGP8sUpsL5YDmeWHrnlscrOGU7LHDIWBQKA9xgHCInPiIxdsCW0a+ahemv58OgkAdnT9wMpHGCniu1WDuAS+dpzUX1vLDUGTeVR86qeA7qby5mIWPyxsULNa4xkvwZDzp0irNzo6kKr/lOxCUMkqi2YVP3mClt7PPnvFi1X/E981AWkY9GU2A=
   skip_cleanup: true
-  distributions: "sdist bdist_wheel"
+  distributions: sdist bdist_wheel
   on:
     tags: true
-    python: "3.6"
-    condition: $DB = POSTGRESQL
+    python: '3.6'
+    condition: "$DB = POSTGRESQL"
