@@ -1,0 +1,60 @@
+# English translations for frontend package.
+# Copyright (C) 2019 THE frontend'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the frontend package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: frontend 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-07 14:56+0100\n"
+"PO-Revision-Date: 2019-02-07 12:12+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/views/Providers.vue:8
+msgid "Add"
+msgstr ""
+
+#: src/components/ProviderForm.vue:12 src/views/Providers.vue:16
+msgid "Address"
+msgstr ""
+
+#: src/components/ProviderForm.vue:39
+msgid "Close"
+msgstr ""
+
+#: src/components/ProviderForm.vue:64
+#, fuzzy
+msgid "Edit provider"
+msgstr "Email providers"
+
+#: src/App.vue:5
+msgid "Email providers"
+msgstr "Email providers"
+
+#: src/components/ProviderForm.vue:7 src/views/Providers.vue:15
+msgid "Name"
+msgstr ""
+
+#: src/components/ProviderForm.vue:63
+#, fuzzy
+msgid "New provider"
+msgstr "Email providers"
+
+#: src/components/ProviderForm.vue:17 src/views/Providers.vue:17
+msgid "Port"
+msgstr ""
+
+#: src/components/SearchForm.vue:23
+msgid "Search"
+msgstr ""
+
+#: src/components/ProviderForm.vue:22
+msgid "Secured connection"
+msgstr ""

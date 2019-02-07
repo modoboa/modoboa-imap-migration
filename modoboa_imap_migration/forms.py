@@ -12,26 +12,6 @@ class ParametersForm(param_forms.AdminParametersForm):
 
     app = "modoboa_imap_migration"
 
-    sep1 = form_utils.SeparatorField(label=_("Connection settings"))
-
-    server_address = forms.CharField(
-        label=_("Server address"),
-        initial="127.0.0.1",
-        help_text=_("Address of your IMAP server")
-    )
-
-    secured = form_utils.YesNoField(
-        label=_("Use a secured connection"),
-        initial=False,
-        help_text=_("Use a secured connection to access IMAP server")
-    )
-
-    server_port = forms.IntegerField(
-        label=_("Server port"),
-        initial=143,
-        help_text=_("Listening port of your IMAP server")
-    )
-
     sep2 = form_utils.SeparatorField(label=_("OfflineIMAP settings"))
 
     max_sync_accounts = forms.IntegerField(
