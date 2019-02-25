@@ -21,6 +21,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+.eggs
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -52,3 +53,15 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Translations
+*.mo
+*.pot
+*.po~
+
+# JS stuff:
+node_modules
+/static/dist
+/frontend/webpack-stats.json
+coverage
+/modoboa_imap_migration/static

@@ -14,7 +14,10 @@ env:
 
 sudo: false
 
-cache: pip
+cache:
+  pip: true
+  directories:
+    - frontend/node_modules
 
 addons:
   postgresql: '9.3'
@@ -39,6 +42,10 @@ after_success:
 before_deploy:
   - cd ../modoboa_imap_migration
   - django-admin compilemessages
+  - cd ../frontend
+  - nvm install 10.15
+  - npm install
+  - npm run build
   - cd ..
 
 deploy:

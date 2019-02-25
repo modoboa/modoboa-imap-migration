@@ -269,3 +269,9 @@ LOGGING = {
 }
 
 # Load settings from extensions
+from modoboa_imap_migration import settings as modoboa_imap_migration_settings
+
+modoboa_imap_migration_settings.apply(globals())
+
+WEBPACK_LOADER["IMAP_MIGRATION"]["STATS_FILE"] = os.path.join(
+    os.path.dirname(__file__), "webpack-stats.json")

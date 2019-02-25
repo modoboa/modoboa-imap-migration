@@ -7,6 +7,26 @@ from modoboa.admin import factories as admin_factories
 from . import models
 
 
+class EmailProviderFactory(factory.DjangoModelFactory):
+    """Factory for EmailProvider."""
+
+    class Meta:
+        model = models.EmailProvider
+
+    name = factory.Sequence(lambda n: "Provider {}".format(n))
+    address = "127.0.0.1"
+    port = 143
+
+
+class EmailProviderDomainFactory(factory.DjangoModelFactory):
+    """Factory for EmailProviderDomain."""
+
+    class Meta:
+        model = models.EmailProviderDomain
+
+    provider = factory.SubFactory(EmailProviderFactory)
+
+
 class MigrationFactory(factory.DjangoModelFactory):
     """Factory for Migration."""
 
@@ -14,3 +34,4 @@ class MigrationFactory(factory.DjangoModelFactory):
         model = models.Migration
 
     mailbox = factory.SubFactory(admin_factories.MailboxFactory)
+    provider = factory.SubFactory(EmailProviderFactory)
