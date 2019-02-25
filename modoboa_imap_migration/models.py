@@ -21,9 +21,6 @@ class EmailProvider(models.Model):
     class Meta:
         ordering = ["name"]
 
-    def __str__(self):
-        return self.name
-
 
 @python_2_unicode_compatible
 class EmailProviderDomain(models.Model):
@@ -37,9 +34,6 @@ class EmailProviderDomain(models.Model):
 
     class Meta:
         ordering = ["provider", "name"]
-
-    def __str__(self):
-        return self.name
 
 
 @python_2_unicode_compatible

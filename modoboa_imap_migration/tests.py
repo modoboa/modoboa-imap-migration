@@ -35,6 +35,12 @@ class DataMixin(object):
 class ViewsTestCase(DataMixin, ModoTestCase):
     """Views test cases."""
 
+    def test_index(self):
+        """Test index view."""
+        url = reverse("modoboa_imap_migration:index")
+        response = self.client.get(url)
+        self.assertContains(response, '<div id="app">')
+
     def test_extra_menu_entry(self):
         """Check that menu entry is added."""
         url = reverse("admin:_identity_list")
@@ -75,6 +81,11 @@ class AuthenticationTestCase(DataMixin, ModoTestCase):
 
         mock_imap.return_value.login.return_value = ["NO", b"Error"]
         data = {"username": "new_user@test.com", "password": "Toto123"}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 401)
+
+        mock_imap.return_value.login.return_value = ["OK", b""]
+        data = {"username": "new_user@test2.com", "password": "Toto1234"}
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, 401)
 

@@ -18,6 +18,11 @@ class IndexView(auth_mixins.LoginRequiredMixin, generic.TemplateView):
 
     template_name = "modoboa_imap_migration/index.html"
 
+    def get_context_data(self, **kwargs):
+        """Set menu selection."""
+        kwargs.update({"selection": "imap_migrations"})
+        return super(IndexView, self).get_context_data(**kwargs)
+
 
 @login_required
 @permission_required("modoboa_imap_migraton.delete_migration")
