@@ -58,6 +58,12 @@ Configuration
 Authentication backend
 ======================
 
+.. warning::
+
+   Please make sure automatic domain/mailbox creation is enabled,
+   otherwise the authentication won't work. Go to the online settings
+   panel (admin tab) and check your current state.
+
 An IMAP authentication backend is provided by the extension and must
 be enabled.
 
