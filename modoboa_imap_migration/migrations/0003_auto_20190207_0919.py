@@ -25,7 +25,8 @@ def create_default_provider(apps, schema_editor):
     )
     for migration in Migration.objects.select_related("mailbox__domain"):
         migration.provider = provider
-        migration.username = migration.mailbox.full_address
+        migration.username = (
+            migration.mailbox.address + "@" + migration.mailbox.domain.name)
         migration.save(update_fields=["provider", "username"])
 
 
