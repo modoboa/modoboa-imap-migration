@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: frontend 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-07 14:56+0100\n"
+"POT-Creation-Date: 2019-02-25 15:13+0100\n"
 "PO-Revision-Date: 2019-02-07 14:57+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -25,11 +25,15 @@ msgstr "Ajouter"
 msgid "Address"
 msgstr "Adresse"
 
-#: src/components/ProviderForm.vue:39
+#: src/components/ProviderForm.vue:53
 msgid "Close"
 msgstr "Fermer"
 
-#: src/components/ProviderForm.vue:64
+#: src/components/ProviderForm.vue:30
+msgid "Domain name"
+msgstr ""
+
+#: src/components/ProviderForm.vue:80
 msgid "Edit provider"
 msgstr "Modifier le fournisseur"
 
@@ -41,7 +45,7 @@ msgstr "Fournisseurs de courriel"
 msgid "Name"
 msgstr "Nom"
 
-#: src/components/ProviderForm.vue:63
+#: src/components/ProviderForm.vue:79
 msgid "New provider"
 msgstr "Nouveau fournisseur"
 
@@ -56,3 +60,7 @@ msgstr "Chercher"
 #: src/components/ProviderForm.vue:22
 msgid "Secured connection"
 msgstr "Connexion sécurisée"
+
+#: src/components/ProviderForm.vue:37
+msgid "Translate to"
+msgstr ""

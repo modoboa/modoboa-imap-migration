@@ -52,7 +52,7 @@ class Migration(models.Model):
     _password = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.mailbox.full_address
+        return self.username
 
     @property
     def password(self):

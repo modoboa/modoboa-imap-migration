@@ -13,7 +13,7 @@ from django.urls import reverse
 from modoboa.admin import factories as admin_factories
 from modoboa.admin import models as admin_models
 from modoboa.core import models as core_models
-from modoboa.lib.tests import ModoTestCase
+from modoboa.lib.tests import ModoTestCase, ModoAPITestCase
 
 from . import factories
 from . import models
@@ -58,12 +58,13 @@ class ViewsTestCase(DataMixin, ModoTestCase):
         self.ajax_delete(cancel_url, status=404)
 
 
-class AuthenticationTestCase(ModoTestCase):
+class AuthenticationTestCase(DataMixin, ModoTestCase):
     """IMAP authentication test case."""
 
     @mock.patch("imaplib.IMAP4")
     def test_authentication(self, mock_imap):
         """Check IMAP authentication."""
+        factories.EmailProviderDomainFactory(name="test.com")
         mock_imap.return_value.login.return_value = ["OK", b""]
         url = reverse("core:login")
         data = {"username": "new_user@test.com", "password": "Toto1234"}
@@ -76,6 +77,20 @@ class AuthenticationTestCase(ModoTestCase):
         data = {"username": "new_user@test.com", "password": "Toto123"}
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, 401)
+
+    @mock.patch("imaplib.IMAP4")
+    def test_authenticate_and_rename(self, mock_imap):
+        """Check address renaming."""
+        domain = admin_models.Domain.objects.get(name="test.com")
+        factories.EmailProviderDomainFactory(
+            name="gmail.com", new_domain=domain)
+        mock_imap.return_value.login.return_value = ["OK", b""]
+        url = reverse("core:login")
+        data = {"username": "new_user@gmail.com", "password": "Toto1234"}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 302)
+        user = core_models.User.objects.get(username="new_user@test.com")
+        self.assertEqual(user.mailbox.domain.name, "test.com")
 
 
 class ManagementCommandTestCase(DataMixin, ModoTestCase):
@@ -96,3 +111,61 @@ class ManagementCommandTestCase(DataMixin, ModoTestCase):
         conf = configparser.ConfigParser()
         conf.read(path)
         self.assertTrue(conf.has_section("Account user@test.com"))
+
+
+class ViewSetTestCase(DataMixin, ModoAPITestCase):
+    """ViewSet related tests."""
+
+    def test_create_provider(self):
+        url = reverse("api:emailprovider-list")
+        data = {
+            "name": "Google",
+            "address": "imap.google.com",
+            "port": 143,
+            "secured": True,
+            "domains": [
+                {"id": 1000,
+                 "name": "gmail.com"}
+            ]
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, 201)
+        self.assertTrue(
+            models.EmailProviderDomain.objects.filter(name="gmail.com")
+            .exists()
+        )
+
+    def test_update_provider(self):
+        provider_domain = factories.EmailProviderDomainFactory(
+            name="outlook.com")
+        url = reverse(
+            "api:emailprovider-detail", args=[provider_domain.provider.pk])
+        data = {
+            "id": provider_domain.provider.id,
+            "name": provider_domain.provider.name,
+            "address": provider_domain.provider.address,
+            "port": provider_domain.provider.port,
+            "domains": [
+                {"id": provider_domain.id,
+                 "name": "hotmail.com",
+                 "new_domain": None},
+                {"name": "gmail.com",
+                 "new_domain": admin_models.Domain.objects.get(
+                     name="test.com").pk}
+            ]
+        }
+        response = self.client.put(url, data, format="json")
+        self.assertEqual(response.status_code, 200)
+        provider_domain.refresh_from_db()
+        self.assertEqual(provider_domain.name, data["domains"][0]["name"])
+        self.assertTrue(
+            models.EmailProviderDomain.objects.filter(name="gmail.com")
+            .exists()
+        )
+        data["domains"].pop()
+        response = self.client.put(url, data, format="json")
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(
+            models.EmailProviderDomain.objects.filter(name="gmail.com")
+            .exists()
+        )

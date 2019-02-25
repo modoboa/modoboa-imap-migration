@@ -2,7 +2,7 @@
 <div>
   <div class="row">
     <div class="col-sm-5">
-      <search-form @search="(query) => getContacts(query)"></search-form>
+      <search-form @search="(query) => getProviders(query)"></search-form>
     </div>
     <div class="col-sm-7">
       <button type="button" class="btn btn-primary" @click="showProviderForm = true">
@@ -69,10 +69,23 @@ export default {
         },
         deleteProvider (provider) {
             this.$store.dispatch('providers/deleteEmailProvider', provider)
+        },
+        getProviders (query) {
+            this.$store.dispatch('providers/listEmailProviders', query)
         }
     },
     mounted () {
         this.$store.dispatch('providers/listEmailProviders')
+        this.$store.dispatch('providers/listDomains')
     }
 }
 </script>
+
+<style>
+.btn {
+    margin: 0 2px;
+}
+.fa {
+    margin-right: 2px;
+}
+</style>

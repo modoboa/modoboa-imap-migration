@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import GetTextPlugin from 'vue-gettext'
+import vSelect from 'vue-select'
 
 import App from './App.vue'
 import router from './router'
@@ -16,7 +17,7 @@ Vue.use(GetTextPlugin, {
     },
     translations: translations
 })
-
+Vue.component('v-select', vSelect)
 Vue.filter('translate', value => {
     return !value ? '' : Vue.prototype.$gettext(value.toString())
 })

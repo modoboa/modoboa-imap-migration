@@ -12,6 +12,8 @@ def create_default_provider(apps, schema_editor):
     Migration = apps.get_model("modoboa_imap_migration", "Migration")
     LocalConfig = apps.get_model("core", "LocalConfig")
     lc = LocalConfig.objects.first()
+    if not lc:
+        return
     params = lc._parameters.get("modoboa_imap_migration")
     if params is None:
         return

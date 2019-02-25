@@ -8,10 +8,16 @@ from . import models
 class EmailProviderDomainSerializer(serializers.ModelSerializer):
     """Serializer class for EmailProviderDomain."""
 
+    id = serializers.IntegerField(required=False)
+
     class Meta:
+        extra_kwargs = {
+            "name": {
+                "validators": []
+            }
+        }
         fields = ("id", "name", "new_domain")
         model = models.EmailProviderDomain
-        read_only_fields = ("id", )
 
 
 class EmailProviderSerializer(serializers.ModelSerializer):
@@ -26,6 +32,7 @@ class EmailProviderSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Create provider and domains."""
         domains = validated_data.pop("domains", None)
+        validated_data.pop("id", None)
         provider = models.EmailProvider.objects.create(**validated_data)
         if domains:
             to_create = []
@@ -38,7 +45,7 @@ class EmailProviderSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         """Update provider and domains."""
         domains = validated_data.pop("domains", [])
-        domain_ids = [domain.id for domain in domains]
+        domain_ids = [domain["id"] for domain in domains if "id" in domain]
         for key, value in validated_data.items():
             setattr(instance, key, value)
         instance.save()
@@ -47,10 +54,19 @@ class EmailProviderSerializer(serializers.ModelSerializer):
                 domain.delete()
             else:
                 for updated_domain in domains:
-                    if updated_domain.id != domain.id:
+                    if updated_domain.get("id") != domain.id:
                         continue
-                    domain.name = updated_domain.name
-                    domain.new_domain = updated_domain.new_domain
+                    domain.name = updated_domain["name"]
+                    domain.new_domain = updated_domain.get("new_domain")
                     domain.save()
+                    domains.remove(updated_domain)
                     break
+        to_create = []
+        for new_domain in domains:
+            to_create.append(models.EmailProviderDomain(
+                name=new_domain["name"],
+                new_domain=new_domain.get("new_domain"),
+                provider=instance
+            ))
+        models.EmailProviderDomain.objects.bulk_create(to_create)
         return instance

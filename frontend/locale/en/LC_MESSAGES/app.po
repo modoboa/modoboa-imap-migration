@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: frontend 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-07 14:56+0100\n"
-"PO-Revision-Date: 2019-02-07 12:12+0100\n"
+"POT-Creation-Date: 2019-02-25 15:13+0100\n"
+"PO-Revision-Date: 2019-02-25 15:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -19,20 +19,23 @@ msgstr ""
 
 #: src/views/Providers.vue:8
 msgid "Add"
-msgstr ""
+msgstr "Add"
 
 #: src/components/ProviderForm.vue:12 src/views/Providers.vue:16
 msgid "Address"
-msgstr ""
+msgstr "Address"
 
-#: src/components/ProviderForm.vue:39
+#: src/components/ProviderForm.vue:53
 msgid "Close"
+msgstr "Close"
+
+#: src/components/ProviderForm.vue:30
+msgid "Domain name"
 msgstr ""
 
-#: src/components/ProviderForm.vue:64
-#, fuzzy
+#: src/components/ProviderForm.vue:80
 msgid "Edit provider"
-msgstr "Email providers"
+msgstr "Email provider"
 
 #: src/App.vue:5
 msgid "Email providers"
@@ -40,21 +43,24 @@ msgstr "Email providers"
 
 #: src/components/ProviderForm.vue:7 src/views/Providers.vue:15
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
-#: src/components/ProviderForm.vue:63
-#, fuzzy
+#: src/components/ProviderForm.vue:79
 msgid "New provider"
-msgstr "Email providers"
+msgstr "New provider"
 
 #: src/components/ProviderForm.vue:17 src/views/Providers.vue:17
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/components/SearchForm.vue:23
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: src/components/ProviderForm.vue:22
 msgid "Secured connection"
-msgstr ""
+msgstr "Secured connection"
+
+#: src/components/ProviderForm.vue:37
+msgid "Translate to"
+msgstr "Translate to"

@@ -35,11 +35,12 @@
           </m-textfield>
         </div>
         <div class="col-sm-5">
-          <m-textfield :placeholder="'Translate to' | translate"
-                       labelWidth=""
-                       inputWidth="col-sm-12"
-                       v-model="domain.new_domain">
-          </m-textfield>
+          <v-select :placeholder="'Translate to' | translate"
+                    :options="domains"
+                    label="name"
+                    index="pk"
+                    v-model="domain.new_domain">
+          </v-select>
         </div>
         <div class="col-sm-2">
           <a href="#" class="btn btn-default btn-xs" @click="addDomain"><span class="fa fa-plus"></span></a>
@@ -60,6 +61,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Modal from './Modal.vue'
 import Checkbox from './Checkbox.vue'
 import TextField from './TextField.vue'
@@ -71,6 +73,7 @@ export default {
         'm-textfield': TextField
     },
     computed: {
+        ...mapGetters('providers', ['domains']),
         title () {
             return (this.provider.id === undefined)
                 ? this.$gettext('New provider')
@@ -130,9 +133,5 @@ export default {
     font-size: 1em;
     font-weight: 600;
     color: #bbb;
-}
-
-.btn {
-    margin: 0 5px;
 }
 </style>

@@ -45,7 +45,12 @@ class EmailProviderService extends ApiService {
     resource = '/api/v1/email-providers/'
 }
 
+class DomainService extends ApiService {
+    resource = '/api/v1/domains/'
+}
+
 export {
     session,
+    DomainService,
     EmailProviderService
 }

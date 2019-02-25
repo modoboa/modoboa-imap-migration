@@ -25,8 +25,8 @@ class IMAPBackend(object):
         if not provider_domain:
             # Domain not allowed for migration: failure
             return None
-        address = provider_domain.provider.server_address
-        port = provider_domain.provider.server_port
+        address = provider_domain.provider.address
+        port = provider_domain.provider.port
         try:
             if provider_domain.provider.secured:
                 conn = imaplib.IMAP4_SSL(address, port)

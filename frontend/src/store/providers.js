@@ -1,18 +1,24 @@
 import Vue from 'vue'
-import { EmailProviderService } from '@/api'
-import { ADD_PROVIDER, SET_PROVIDERS, SET_PROVIDER, DELETE_PROVIDER } from './types'
+import { DomainService, EmailProviderService } from '@/api'
+import { ADD_PROVIDER, SET_PROVIDERS, SET_PROVIDER, DELETE_PROVIDER, SET_DOMAINS } from './types'
 
 const state = {
+    domains: [],
     providers: []
 }
 
 const getters = {
+    domains: state => state.domains,
     providers: state => state.providers
 }
 
 const actions = {
-    listEmailProviders ({ commit }) {
-        return new EmailProviderService().list().then(response => {
+    listEmailProviders ({ commit }, filter) {
+        var query = {}
+        if (filter !== undefined) {
+            query = { params: { search: filter } }
+        }
+        return new EmailProviderService().list(query).then(response => {
             commit(SET_PROVIDERS, response.data)
         })
     },
@@ -29,6 +35,11 @@ const actions = {
     deleteEmailProvider ({ commit }, data) {
         return new EmailProviderService().delete(data.id).then(response => {
             commit(DELETE_PROVIDER, data)
+        })
+    },
+    listDomains ({ commit }) {
+        return new DomainService().list().then(response => {
+            commit(SET_DOMAINS, response.data)
         })
     }
 }
@@ -51,6 +62,9 @@ const mutations = {
         state.providers = state.providers.filter(item => {
             return item.id !== data.id
         })
+    },
+    [SET_DOMAINS] (state, data) {
+        state.domains = data
     }
 }
 
