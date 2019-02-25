@@ -9,7 +9,6 @@ from modoboa.admin.models import Mailbox
 from modoboa.lib.cryptutils import encrypt, decrypt
 
 
-@python_2_unicode_compatible
 class EmailProvider(models.Model):
     """Email provider model."""
 
@@ -22,7 +21,6 @@ class EmailProvider(models.Model):
         ordering = ["name"]
 
 
-@python_2_unicode_compatible
 class EmailProviderDomain(models.Model):
     """Email provider domain class."""
 
