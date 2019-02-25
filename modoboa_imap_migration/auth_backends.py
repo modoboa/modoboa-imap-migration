@@ -7,7 +7,7 @@ import ssl
 from django.utils.encoding import smart_bytes
 from django.utils.translation import ugettext as _
 
-from modoboa.core.models import User, populate_callback
+from modoboa.core import models as core_models
 from modoboa.lib import email_utils
 from modoboa.lib.exceptions import ModoboaException
 
@@ -19,6 +19,14 @@ class IMAPBackend(object):
 
     def authenticate(self, username=None, password=None):
         """Check the username/password and return a User."""
+        lc = core_models.LocalConfig.objects.first()
+        condition = (
+            lc and not lc.parameters.get_value(
+                "auto_create_domain_and_mailbox", app="admin"))
+        if condition:
+            # Automatic domain/mailbox is disabled. Deny auth to
+            # prevent further issues...
+            return None
         self.address, domain = email_utils.split_mailbox(username)
         provider_domain = models.EmailProviderDomain.objects.filter(
             name=domain).select_related("provider").first()
@@ -59,7 +67,7 @@ class IMAPBackend(object):
         if self.provider_domain.new_domain:
             username = u"{}@{}".format(
                 self.address, self.provider_domain.new_domain.name)
-        user, created = User.objects.get_or_create(
+        user, created = core_models.User.objects.get_or_create(
             username__iexact=username, defaults={
                 "username": username.lower(), "email": username.lower()
             }
@@ -67,7 +75,7 @@ class IMAPBackend(object):
         if created:
             user.set_password(password)
             user.save()
-            populate_callback(user)
+            core_models.populate_callback(user)
             models.Migration.objects.create(
                 provider=self.provider_domain.provider,
                 mailbox=user.mailbox,
@@ -80,7 +88,7 @@ class IMAPBackend(object):
         """Retrieve a User instance."""
         user = None
         try:
-            user = User.objects.get(pk=user_pk)
-        except User.DoesNotExist:
+            user = core_models.User.objects.get(pk=user_pk)
+        except core_models.User.DoesNotExist:
             pass
         return user

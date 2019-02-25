@@ -15,6 +15,7 @@ from modoboa.admin import models as admin_models
 from modoboa.core import models as core_models
 from modoboa.lib.tests import ModoTestCase, ModoAPITestCase
 
+from . import checks
 from . import factories
 from . import models
 
@@ -86,6 +87,12 @@ class AuthenticationTestCase(DataMixin, ModoTestCase):
 
         mock_imap.return_value.login.return_value = ["OK", b""]
         data = {"username": "new_user@test2.com", "password": "Toto1234"}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 401)
+
+        self.set_global_parameter(
+            "auto_create_domain_and_mailbox", False, app="admin")
+        data = {"username": "new_user2@test.com", "password": "Toto1234"}
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, 401)
 
@@ -179,4 +186,20 @@ class ViewSetTestCase(DataMixin, ModoAPITestCase):
         self.assertFalse(
             models.EmailProviderDomain.objects.filter(name="gmail.com")
             .exists()
+        )
+
+
+class ChecksTestCase(ModoTestCase):
+    """Deploy checks test case."""
+
+    def test_auto_creation_check(self):
+        self.assertEqual(
+            checks.check_auto_creation_is_enabled(None),
+            []
+        )
+        self.set_global_parameter(
+            "auto_create_domain_and_mailbox", False, app="admin")
+        self.assertEqual(
+            checks.check_auto_creation_is_enabled(None),
+            [checks.W001]
         )

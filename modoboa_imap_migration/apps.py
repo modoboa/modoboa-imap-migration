@@ -10,4 +10,5 @@ class IMAPMigrationConfig(AppConfig):
     verbose_name = "Migration through IMAP for Modoboa"
 
     def ready(self):
-        from . import handlers
+        from . import checks  # noqa
+        from . import handlers  # noqa
