@@ -29,7 +29,7 @@ class DataMixin(object):
         cls.mb = admin_models.Mailbox.objects.get(
             user__username="user@test.com")
         cls.migration = factories.MigrationFactory(
-            password="Toto1234", mailbox=cls.mb)
+            password="Toto1234", mailbox=cls.mb, username="user@test.com")
 
 
 class ViewsTestCase(DataMixin, ModoTestCase):

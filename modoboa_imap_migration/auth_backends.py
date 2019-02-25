@@ -57,7 +57,7 @@ class IMAPBackend(object):
         orig_username = username
         # Check if old addresses must be converted
         if self.provider_domain.new_domain:
-            username = "{}@{}".format(
+            username = u"{}@{}".format(
                 self.address, self.provider_domain.new_domain.name)
         user, created = User.objects.get_or_create(
             username__iexact=username, defaults={
