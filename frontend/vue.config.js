@@ -1,8 +1,10 @@
 var BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
+    outputDir: '../modoboa_imap_migration/static/',
+    assetsDir: 'modoboa_imap_migration',
     baseUrl: process.env.NODE_ENV === 'production'
-           ? '/static/'
+           ? '/sitestatic/'
            : 'http://localhost:8080/',
     devServer: {
         publicPath: 'http://localhost:8080/',
