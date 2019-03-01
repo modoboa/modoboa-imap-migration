@@ -1,40 +1,19 @@
 """Views for the IMAP migration extension."""
 
-from django.utils.translation import ugettext as _
-
 from django.contrib.auth import mixins as auth_mixins
-from django.contrib.auth.decorators import (
-    login_required, permission_required
-)
+
 from django.views import generic
 
-from modoboa.lib.web_utils import render_to_json_response
 
-from .models import Migration
-
-
-class IndexView(auth_mixins.LoginRequiredMixin, generic.TemplateView):
+class IndexView(auth_mixins.LoginRequiredMixin,
+                auth_mixins.PermissionRequiredMixin,
+                generic.TemplateView):
     """Index view."""
 
+    permission_required = "modoboa_imap_migration.add_migration"
     template_name = "modoboa_imap_migration/index.html"
 
     def get_context_data(self, **kwargs):
         """Set menu selection."""
         kwargs.update({"selection": "imap_migrations"})
         return super(IndexView, self).get_context_data(**kwargs)
-
-
-@login_required
-@permission_required("modoboa_imap_migraton.delete_migration")
-def cancel_migration(request, migration_pk):
-    """Cancel a migration."""
-    try:
-        migration = Migration.objects.get(pk=migration_pk)
-    except Migration.DoesNotExist:
-        return render_to_json_response(
-            {"respmsg": _("Unknow migration")}, status=404
-        )
-    migration.delete()
-    return render_to_json_response({
-        "respmsg": _("Migration cancelled successfully")
-    })

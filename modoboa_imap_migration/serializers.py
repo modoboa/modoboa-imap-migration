@@ -2,6 +2,8 @@
 
 from rest_framework import serializers
 
+from modoboa.admin import models as admin_models
+
 from . import models
 
 
@@ -70,3 +72,22 @@ class EmailProviderSerializer(serializers.ModelSerializer):
             ))
         models.EmailProviderDomain.objects.bulk_create(to_create)
         return instance
+
+
+class MailboxSerializer(serializers.ModelSerializer):
+    """Simple mailbox serializer."""
+
+    class Meta:
+        fields = ("id", "full_address")
+        model = admin_models.Mailbox
+
+
+class MigrationSerializer(serializers.ModelSerializer):
+    """Serializer class for Migration."""
+
+    mailbox = MailboxSerializer()
+
+    class Meta:
+        depth = 1
+        fields = ("id", "provider", "mailbox", "username")
+        model = models.Migration

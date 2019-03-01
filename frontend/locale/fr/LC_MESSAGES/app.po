@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: frontend 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-25 15:13+0100\n"
-"PO-Revision-Date: 2019-02-07 14:57+0100\n"
+"POT-Creation-Date: 2019-03-01 17:38+0100\n"
+"PO-Revision-Date: 2019-03-01 17:38+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -25,13 +25,17 @@ msgstr "Ajouter"
 msgid "Address"
 msgstr "Adresse"
 
+#: src/views/Migrations.vue:51
+msgid "Cancel"
+msgstr "Annuler"
+
 #: src/components/ProviderForm.vue:53
 msgid "Close"
 msgstr "Fermer"
 
 #: src/components/ProviderForm.vue:30
 msgid "Domain name"
-msgstr ""
+msgstr "Nom de domain"
 
 #: src/components/ProviderForm.vue:80
 msgid "Edit provider"
@@ -41,17 +45,45 @@ msgstr "Modifier le fournisseur"
 msgid "Email providers"
 msgstr "Fournisseurs de courriel"
 
+#: src/App.vue:8
+msgid "Migrations"
+msgstr "Migrations"
+
 #: src/components/ProviderForm.vue:7 src/views/Providers.vue:15
 msgid "Name"
 msgstr "Nom"
+
+#: src/views/Migrations.vue:12
+msgid "New account"
+msgstr "Nouveau compte"
 
 #: src/components/ProviderForm.vue:79
 msgid "New provider"
 msgstr "Nouveau fournisseur"
 
+#: src/views/Migrations.vue:11
+msgid "Old account"
+msgstr "Ancien compte"
+
 #: src/components/ProviderForm.vue:17 src/views/Providers.vue:17
 msgid "Port"
 msgstr "Port"
+
+#: src/views/Migrations.vue:52
+msgid "Proceed"
+msgstr "Valider"
+
+#: src/views/Migrations.vue:10
+msgid "Provider"
+msgstr "Fournisseur"
+
+#: src/views/Migrations.vue:50
+msgid "Remove this migration?"
+msgstr "Supprimer cette migration ?"
+
+#: src/components/ProviderForm.vue:37
+msgid "Rename to"
+msgstr "Renommer en"
 
 #: src/components/SearchForm.vue:23
 msgid "Search"
@@ -60,7 +92,3 @@ msgstr "Chercher"
 #: src/components/ProviderForm.vue:22
 msgid "Secured connection"
 msgstr "Connexion sécurisée"
-
-#: src/components/ProviderForm.vue:37
-msgid "Translate to"
-msgstr ""

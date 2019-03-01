@@ -49,8 +49,13 @@ class DomainService extends ApiService {
     resource = '/api/v1/domains/'
 }
 
+class MigrationService extends ApiService {
+    resource = '/api/v1/migrations/'
+}
+
 export {
     session,
     DomainService,
-    EmailProviderService
+    EmailProviderService,
+    MigrationService
 }
