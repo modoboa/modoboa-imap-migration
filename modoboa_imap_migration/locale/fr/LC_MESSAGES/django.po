@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 17:42+0100\n"
-"PO-Revision-Date: 2017-10-14 07:49+0000\n"
+"PO-Revision-Date: 2019-03-01 18:09+0100\n"
 "Last-Translator: Antoine Nguyen <tonio@ngyn.org>\n"
 "Language-Team: French (http://www.transifex.com/tonio/modoboa/language/fr/)\n"
 "Language: fr\n"
@@ -27,12 +27,12 @@ msgstr "Echec lors de la connexion au serveur IMAP : %s"
 msgid ""
 "Automatic domain/mailbox creation is disabled which means IMAP "
 "authentication won't work."
-msgstr ""
+msgstr "La création automatique de domaine/compte est désactivée, ce qui veut dire que l'authentification IMAP ne fonctionnera pas."
 
 #: checks.py:13
 msgid ""
 "Go to the online parameters panel (admin tab) and activate this feature."
-msgstr ""
+msgstr "Rendez vous sur le panneau de configuration des paramètres (onglet Administration) et activez cette fonctionnalité."
 
 #: forms.py:15
 msgid "OfflineIMAP settings"
@@ -85,10 +85,8 @@ msgstr ""
 "d'exclusion. Exemple debian.user, debian.personal"
 
 #: handlers.py:17
-#, fuzzy
-#| msgid "IMAP migration"
 msgid "IMAP migrations"
-msgstr "Migration IMAP"
+msgstr "Migrations IMAP"
 
 #: modo_extension.py:16
 msgid "IMAP migration using OfflineIMAP"
@@ -101,36 +99,3 @@ msgstr "Migrer des boites existantes en utilisant IMAP et OfflineIMAP"
 #: modo_extension.py:25 templates/modoboa_imap_migration/index.html:6
 msgid "IMAP migration"
 msgstr "Migration IMAP"
-
-#~ msgid "Connection settings"
-#~ msgstr "Paramètres de connexion"
-
-#~ msgid "Server address"
-#~ msgstr "Adresse du serveur"
-
-#~ msgid "Address of your IMAP server"
-#~ msgstr "Adresse de votre serveur IMAP"
-
-#~ msgid "Use a secured connection"
-#~ msgstr "Utiliser une connexion sécurisée"
-
-#~ msgid "Use a secured connection to access IMAP server"
-#~ msgstr "Utiliser une connexion sécurisée pour accéder au serveur IMAP"
-
-#~ msgid "Server port"
-#~ msgstr "Port du serveur"
-
-#~ msgid "Listening port of your IMAP server"
-#~ msgstr "Port d'écoute de votre serveur IMAP"
-
-#~ msgid "Cancel this account's migration"
-#~ msgstr "Annuler la migration de ce compte"
-
-#~ msgid "Cancel the migration for %s?"
-#~ msgstr "Annuler la migration de %s ?"
-
-#~ msgid "Unknow migration"
-#~ msgstr "Migration inconnue"
-
-#~ msgid "Migration cancelled successfully"
-#~ msgstr "Migration annulée avec succès"
