@@ -43,28 +43,6 @@ class ViewsTestCase(DataMixin, ModoTestCase):
         response = self.client.get(url)
         self.assertContains(response, '<div id="app">')
 
-    def test_extra_menu_entry(self):
-        """Check that menu entry is added."""
-        url = reverse("admin:_identity_list")
-        response = self.ajax_get(url)
-        cancel_url = reverse(
-            "modoboa_imap_migration:migration_cancel",
-            args=[self.migration.pk])
-        self.assertIn(cancel_url, response["rows"])
-
-    def test_cancel_migration(self):
-        """Test cancel migration view."""
-        cancel_url = reverse(
-            "modoboa_imap_migration:migration_cancel",
-            args=[self.migration.pk])
-        self.ajax_delete(cancel_url)
-        with self.assertRaises(models.Migration.DoesNotExist):
-            self.migration.refresh_from_db()
-        cancel_url = reverse(
-            "modoboa_imap_migration:migration_cancel",
-            args=[1000])
-        self.ajax_delete(cancel_url, status=404)
-
 
 class AuthenticationTestCase(DataMixin, ModoTestCase):
     """IMAP authentication test case."""
