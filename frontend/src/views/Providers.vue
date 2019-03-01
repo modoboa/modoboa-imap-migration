@@ -6,7 +6,7 @@
     </div>
     <div class="col-sm-7">
       <button type="button" class="btn btn-primary" @click="showProviderForm = true">
-        <span class="fa fa-plus"></span> <translate>Add</translate>
+        <span class="fa fa-plus"></span>&nbsp;<translate>Add</translate>
       </button>
     </div>
   </div>
@@ -81,11 +81,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .btn {
     margin: 0 2px;
-}
-.fa {
-    margin-right: 2px;
 }
 </style>

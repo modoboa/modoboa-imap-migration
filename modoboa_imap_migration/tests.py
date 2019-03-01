@@ -12,6 +12,7 @@ from django.urls import reverse
 
 from modoboa.admin import factories as admin_factories
 from modoboa.admin import models as admin_models
+from modoboa.core import factories as core_factories
 from modoboa.core import models as core_models
 from modoboa.lib.tests import ModoTestCase, ModoAPITestCase
 
@@ -110,6 +111,25 @@ class AuthenticationTestCase(DataMixin, ModoTestCase):
         user = core_models.User.objects.get(username="new_user@test.com")
         self.assertEqual(user.mailbox.domain.name, "test.com")
 
+    @mock.patch("imaplib.IMAP4")
+    def test_authenticate_conflicts(self, mock_imap):
+        """Check potential conflicts."""
+        core_factories.UserFactory(
+            username="admin2@test.com", groups=("DomainAdmins", ),
+            password="{PLAIN}toto"
+        )
+        domain = admin_models.Domain.objects.get(name="test.com")
+        factories.EmailProviderDomainFactory(
+            name="gmail.com", new_domain=domain)
+        mock_imap.return_value.login.return_value = ["OK", b""]
+        url = reverse("core:login")
+        data = {"username": "admin@gmail.com", "password": "Toto1234"}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 401)
+
+        data = {"username": "admin2@gmail.com", "password": "Toto1234"}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 401)
 
 class ManagementCommandTestCase(DataMixin, ModoTestCase):
     """Management command test cases."""

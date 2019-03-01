@@ -101,6 +101,9 @@ export default {
         loadProvider (value) {
             if (value) {
                 let result = JSON.parse(JSON.stringify(value))
+                if (!result.domains.length) {
+                    result.domains = [{}]
+                }
                 return result
             }
             return { domains: [{}] }

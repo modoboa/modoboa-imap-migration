@@ -82,6 +82,16 @@ class IMAPBackend(object):
                 username=orig_username,
                 password=password
             )
+        else:
+            # What happens if an account already exists?
+            if not hasattr(user, "mailbox"):
+                # No mailbox => might be an admin account
+                return None
+            qset = models.Migration.objects.filter(mailbox=user.mailbox)
+            if not qset.exists():
+                # No migration => either someone else account, or
+                # migration is done
+                return None
         return user
 
     def get_user(self, user_pk):
