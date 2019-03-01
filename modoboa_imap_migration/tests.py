@@ -109,6 +109,7 @@ class AuthenticationTestCase(DataMixin, ModoTestCase):
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, 401)
 
+
 class ManagementCommandTestCase(DataMixin, ModoTestCase):
     """Management command test cases."""
 
