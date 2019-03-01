@@ -35,7 +35,7 @@
           </m-textfield>
         </div>
         <div class="col-sm-5">
-          <v-select :placeholder="'Translate to' | translate"
+          <v-select :placeholder="'Rename to' | translate"
                     :options="domains"
                     label="name"
                     index="pk"

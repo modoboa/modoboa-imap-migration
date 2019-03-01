@@ -1,109 +1,94 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Antoine Nguyen <tonio@ngyn.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Modoboa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-14 09:42+0200\n"
+"POT-Creation-Date: 2019-03-01 17:42+0100\n"
 "PO-Revision-Date: 2017-10-14 07:49+0000\n"
 "Last-Translator: Antoine Nguyen <tonio@ngyn.org>\n"
 "Language-Team: French (http://www.transifex.com/tonio/modoboa/language/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: auth_backends.py:37
+#: auth_backends.py:45
 #, python-format
 msgid "Connection to IMAP server failed: %s"
 msgstr "Echec lors de la connexion au serveur IMAP : %s"
 
+#: checks.py:11
+msgid ""
+"Automatic domain/mailbox creation is disabled which means IMAP "
+"authentication won't work."
+msgstr ""
+
+#: checks.py:13
+msgid ""
+"Go to the online parameters panel (admin tab) and activate this feature."
+msgstr ""
+
 #: forms.py:15
-msgid "Connection settings"
-msgstr "Paramètres de connexion"
-
-#: forms.py:18
-msgid "Server address"
-msgstr "Adresse du serveur"
-
-#: forms.py:20
-msgid "Address of your IMAP server"
-msgstr "Adresse de votre serveur IMAP"
-
-#: forms.py:24
-msgid "Use a secured connection"
-msgstr "Utiliser une connexion sécurisée"
-
-#: forms.py:26
-msgid "Use a secured connection to access IMAP server"
-msgstr "Utiliser une connexion sécurisée pour accéder au serveur IMAP"
-
-#: forms.py:30
-msgid "Server port"
-msgstr "Port du serveur"
-
-#: forms.py:32
-msgid "Listening port of your IMAP server"
-msgstr "Port d'écoute de votre serveur IMAP"
-
-#: forms.py:35
 msgid "OfflineIMAP settings"
 msgstr "Paramètres OfflineIMAP"
 
-#: forms.py:38
+#: forms.py:18
 msgid "Concurrent sync jobs"
 msgstr "Tâche(s) de synchronisation concurrente(s)"
 
-#: forms.py:40
+#: forms.py:20
 msgid "The maximum number of concurrent synchronization jobs"
 msgstr "Nombre maximal de tâche de synchronisation concurrente"
 
-#: forms.py:43
+#: forms.py:23
 msgid "OfflineIMAP Filter settings"
 msgstr "Paramètres de filtragre OfflineIMAP"
 
-#: forms.py:46
+#: forms.py:26
 msgid "Create Folders"
 msgstr "Création des dossiers"
 
-#: forms.py:48
+#: forms.py:28
 msgid "Allow Creation of missing folders during sync"
 msgstr "Autoriser la création des dossiers manquant pendant la synchro"
 
-#: forms.py:53
+#: forms.py:33
 msgid "Folder Filter Exclusions"
 msgstr "Filtre d'exclusion de dossier"
 
-#: forms.py:55
+#: forms.py:36
 msgid ""
 "Use a regular expression to explicitly include folders in sync. Example: "
 "^Trash$|Del"
-msgstr "Utiliser une expression régulière pour explicitement inclure des dossiers à synchroniser. Exemple : ^Trash$|Del"
+msgstr ""
+"Utiliser une expression régulière pour explicitement inclure des dossiers à "
+"synchroniser. Exemple : ^Trash$|Del"
 
-#: forms.py:60
+#: forms.py:43
 msgid "Folder Filter Inclusions"
 msgstr "Filtre d'inclusion de dossier"
 
-#: forms.py:62
+#: forms.py:46
 msgid ""
 "A comma seperated list of folders to explicitly include in sync even if "
-"filtered by the Folder Filter Exclusions. Example: debian.user, "
-"debian.personal "
-msgstr "Une liste de dossiers séparés par des virgules à explicitement inclure pendant la synchronisation même s'ils sont concernés par le filtre d'exclusion. Exemple debian.user, debian.personal"
+"filtered by the Folder Filter Exclusions. Example: debian.user, debian."
+"personal "
+msgstr ""
+"Une liste de dossiers séparés par des virgules à explicitement inclure "
+"pendant la synchronisation même s'ils sont concernés par le filtre "
+"d'exclusion. Exemple debian.user, debian.personal"
 
-#: handlers.py:24
-msgid "Cancel this account's migration"
-msgstr "Annuler la migration de ce compte"
-
-#: handlers.py:26
-#, python-format
-msgid "Cancel the migration for %s?"
-msgstr "Annuler la migration de %s ?"
+#: handlers.py:17
+#, fuzzy
+#| msgid "IMAP migration"
+msgid "IMAP migrations"
+msgstr "Migration IMAP"
 
 #: modo_extension.py:16
 msgid "IMAP migration using OfflineIMAP"
@@ -113,14 +98,39 @@ msgstr "Migration IMAP basée sur OfflineIMAP"
 msgid "Migrate existing mailboxes using IMAP and OfflineIMAP"
 msgstr "Migrer des boites existantes en utilisant IMAP et OfflineIMAP"
 
-#: modo_extension.py:25
+#: modo_extension.py:25 templates/modoboa_imap_migration/index.html:6
 msgid "IMAP migration"
 msgstr "Migration IMAP"
 
-#: views.py:22
-msgid "Unknow migration"
-msgstr "Migration inconnue"
+#~ msgid "Connection settings"
+#~ msgstr "Paramètres de connexion"
 
-#: views.py:26
-msgid "Migration cancelled successfully"
-msgstr "Migration annulée avec succès"
+#~ msgid "Server address"
+#~ msgstr "Adresse du serveur"
+
+#~ msgid "Address of your IMAP server"
+#~ msgstr "Adresse de votre serveur IMAP"
+
+#~ msgid "Use a secured connection"
+#~ msgstr "Utiliser une connexion sécurisée"
+
+#~ msgid "Use a secured connection to access IMAP server"
+#~ msgstr "Utiliser une connexion sécurisée pour accéder au serveur IMAP"
+
+#~ msgid "Server port"
+#~ msgstr "Port du serveur"
+
+#~ msgid "Listening port of your IMAP server"
+#~ msgstr "Port d'écoute de votre serveur IMAP"
+
+#~ msgid "Cancel this account's migration"
+#~ msgstr "Annuler la migration de ce compte"
+
+#~ msgid "Cancel the migration for %s?"
+#~ msgstr "Annuler la migration de %s ?"
+
+#~ msgid "Unknow migration"
+#~ msgstr "Migration inconnue"
+
+#~ msgid "Migration cancelled successfully"
+#~ msgstr "Migration annulée avec succès"
