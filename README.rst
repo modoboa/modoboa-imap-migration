@@ -41,6 +41,11 @@ like this::
     'modoboa_imap_migration',
   )
 
+Then, add the following at the end of the file::
+
+  from modoboa_imap_migration import settings as modoboa_imap_migration_settings
+  modoboa_imap_migration_settings.apply(globals())
+
 Restart the python process running modoboa (uwsgi, gunicorn, apache,
 whatever).
 
