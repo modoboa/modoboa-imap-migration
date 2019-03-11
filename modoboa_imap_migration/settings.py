@@ -6,7 +6,7 @@ PLUGIN_BASE_DIR = os.path.dirname(__file__)
 
 STATS_FILE = (
     os.path.join(
-        PLUGIN_BASE_DIR, "../frontend/webpack-stats.json")
+        PLUGIN_BASE_DIR, "static/webpack-stats.json")
 )
 
 

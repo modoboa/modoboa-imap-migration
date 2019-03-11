@@ -17,6 +17,8 @@ module.exports = {
         }
     },
     configureWebpack: config => {
-        config.plugins.push(new BundleTracker());
+        config.plugins.push(new BundleTracker({
+            path: '../modoboa_imap_migration/static/'
+        }));
     }
 }
