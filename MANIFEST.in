@@ -1,3 +1,4 @@
 include README.rst COPYING requirements.txt
-recursive-include modoboa_imap_migration *.html *.js *.css *.po *.mo *.conf 
+recursive-include modoboa_imap_migration *.html *.js *.css *.po *.mo *.conf *.json
+recursive-include frontend webpack-stats.json
 recursive-include doc *
