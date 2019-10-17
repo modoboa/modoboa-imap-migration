@@ -23,6 +23,10 @@ addons:
   postgresql: '9.6'
   mysql: '5.7'
 
+services:
+  - mysql
+  - postgresl
+
 before_install:
   - pip install codecov
   - pip install -e git+https://github.com/modoboa/modoboa.git#egg=modoboa
