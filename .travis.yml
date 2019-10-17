@@ -21,7 +21,7 @@ cache:
 
 addons:
   postgresql: '9.6'
-  mysql: '5.5'
+  mysql: '5.7'
 
 before_install:
   - pip install codecov
