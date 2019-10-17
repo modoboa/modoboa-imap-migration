@@ -4,7 +4,7 @@ import imaplib
 import socket
 import ssl
 
-from django.utils.encoding import smart_bytes
+from django.utils.encoding import smart_bytes, smart_str
 from django.utils.translation import ugettext as _
 
 from modoboa.core import models as core_models
@@ -46,7 +46,7 @@ class IMAPBackend(object):
 
         try:
             typ, data = conn.login(
-                smart_bytes(username), smart_bytes(password))
+                smart_bytes(username), smart_str(password))
         except imaplib.IMAP4.error:
             typ = "NO"
         conn.logout()
