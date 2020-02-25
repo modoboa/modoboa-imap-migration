@@ -3,7 +3,6 @@ IMAP migration models.
 """
 
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 from modoboa.admin.models import Mailbox
 from modoboa.lib.cryptutils import encrypt, decrypt
@@ -34,7 +33,6 @@ class EmailProviderDomain(models.Model):
         ordering = ["provider", "name"]
 
 
-@python_2_unicode_compatible
 class Migration(models.Model):
     """Represent mailboxes to migrate."""
 
