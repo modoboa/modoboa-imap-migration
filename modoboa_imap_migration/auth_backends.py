@@ -14,10 +14,10 @@ from modoboa.lib.exceptions import ModoboaException
 from . import models
 
 
-class IMAPBackend(object):
+class IMAPBackend:
     """IMAP authentication backend."""
 
-    def authenticate(self, username=None, password=None):
+    def authenticate(self, request, username=None, password=None):
         """Check the username/password and return a User."""
         lc = core_models.LocalConfig.objects.first()
         condition = (
