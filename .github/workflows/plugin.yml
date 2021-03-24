@@ -58,13 +58,13 @@ jobs:
       - name: Install postgres requirements
         if: ${{ matrix.database == 'postgres' }}
         run: |
-          pip install -r postgresql-requirements.txt
+          pip install psycopg2-binary>=2.7.4
           pip install coverage
           echo "DB=postgres" >> $GITHUB_ENV
       - name: Install mysql requirements
         if: ${{ matrix.database == 'mysql' }}
         run: |
-          pip install -r mysql-requirements.txt
+          pip install mysqlclient<2.0.4
           echo "DB=mysql" >> $GITHUB_ENV
       - name: Test with pytest
         if: ${{ matrix.python-version != '3.8' || matrix.database != 'postgres' }}
