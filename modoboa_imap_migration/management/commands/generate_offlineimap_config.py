@@ -1,5 +1,8 @@
 """A management command to create an offlineimap configuration file."""
 
+import os
+import stat
+
 from django.core.management.base import BaseCommand
 from django.template.loader import render_to_string
 
@@ -40,3 +43,4 @@ class Command(BaseCommand):
             content = render_to_string(
                 "modoboa_imap_migration/offlineimap.conf", context)
             fpo.write(content)
+        os.fchmod(options["output"], stat.S_IRUSR | S_IWUSR)
