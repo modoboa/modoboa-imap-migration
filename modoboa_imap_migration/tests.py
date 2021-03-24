@@ -3,8 +3,8 @@
 import os
 import shutil
 import tempfile
+from unittest import mock
 
-import mock
 from six.moves import configparser
 
 from django.core.management import call_command
