@@ -1,11 +1,11 @@
 var BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
+    publicPath: process.env.NODE_ENV === 'production'
+              ? '/sitestatic/'
+              : 'http://localhost:8080/',
     outputDir: '../modoboa_imap_migration/static/',
     assetsDir: 'modoboa_imap_migration',
-    baseUrl: process.env.NODE_ENV === 'production'
-           ? '/sitestatic/'
-           : 'http://localhost:8080/',
     devServer: {
         publicPath: 'http://localhost:8080/',
         headers: {
@@ -18,7 +18,7 @@ module.exports = {
     },
     configureWebpack: config => {
         config.plugins.push(new BundleTracker({
-            path: '../modoboa_imap_migration/static/'
+            path: '../modoboa_imap_migration/static/modoboa_imap_migration/'
         }));
     }
 }

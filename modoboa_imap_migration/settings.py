@@ -4,10 +4,8 @@ import os
 
 PLUGIN_BASE_DIR = os.path.dirname(__file__)
 
-STATS_FILE = (
-    os.path.join(
-        PLUGIN_BASE_DIR, "static/webpack-stats.json")
-)
+STATS_FILE = os.path.join(
+    PLUGIN_BASE_DIR, "static/modoboa_imap_migration/webpack-stats.json")
 
 
 def apply(settings):
