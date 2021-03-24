@@ -43,4 +43,4 @@ class Command(BaseCommand):
             content = render_to_string(
                 "modoboa_imap_migration/offlineimap.conf", context)
             fpo.write(content)
-        os.fchmod(options["output"], stat.S_IRUSR | stat.S_IWUSR)
+        os.chmod(options["output"], stat.S_IRUSR | stat.S_IWUSR)
