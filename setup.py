@@ -8,8 +8,6 @@ See:
 https://packaging.python.org/en/latest/distributing.html
 """
 
-from __future__ import unicode_literals
-
 import io
 from os import path
 try:
@@ -25,12 +23,16 @@ def get_requirements(requirements_file):
     requirements = []
     if path.isfile(requirements_file):
         for req in parse_requirements(requirements_file, session="hack"):
-            # check markers, such as
-            #
-            #     rope_py3k    ; python_version >= '3.0'
-            #
-            if req.match_markers():
-                requirements.append(str(req.req))
+            try:
+                # check markers, such as
+                #
+                #     rope_py3k    ; python_version >= '3.0'
+                #
+                if req.match_markers():
+                    requirements.append(str(req.req))
+            except AttributeError:
+                # pip >= 20.0.2
+                requirements.append(req.requirement)
     return requirements
 
 
