@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.22",
+    "vue": "^2.6.12",
     "vue-gettext": "^2.1.2",
     "vue-router": "^3.0.1",
     "vue-select": "^2.5.1",
-    "vuejs-dialog": "^1.3.0",
+    "vuejs-dialog": "^1.4.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
