@@ -130,18 +130,21 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-      - name: Install dependencies
+      - name: Build frontend
+        shell: bash -l {0}
+        run: |
+          cd frontend
+          nvm install 10.15
+          npm install
+          npm run build
+          cd ..
+      - name: Build packages
         run: |
           sudo apt-get install librrd-dev rrdtool libssl-dev gettext
           python -m pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
           cd modoboa_imap_migration
           django-admin compilemessages
-          cd ../frontend
-          nvm install 10.15
-          npm install
-          npm run build
-          cd ..
           python setup.py sdist bdist_wheel
       - name: Publish to Test PyPI
         if: endsWith(github.event.ref, '/master')
