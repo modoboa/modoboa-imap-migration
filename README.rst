@@ -1,7 +1,7 @@
 Mailboxes migration using OfflineIMAP
 =====================================
 
-|travis| |codecov| |landscape|
+|ghw| |codecov|
 
 A simple `Modoboa <http://modoboa.org/>`_ extension which provides a
 way to migrate existing mailboxes using `OfflineIMAP
@@ -54,6 +54,7 @@ Run the following commands to setup the database tables::
   $ cd <modoboa_instance_dir>
   $ python manage.py migrate modoboa_imap_migration
   $ python manage.py load_initial_data
+  $ python manage.py collectstatic
 
 You also need to `install <http://offlineimap.org/doc/installation.html>`_ OfflineIMAP.
 
@@ -103,43 +104,6 @@ hours. You can copy it inside the ``/etc/cron.d/modoboa`` file:
 
 Feel free to adapt it.
 
-Helper script for OfflineIMAP
-=============================
-
-OfflineIMAP will need a way to retrieve user passwords of the old
-server. To do that, just copy the following Python code into a file
-called ``.offlineimap.py``:
-
-.. sourcecode:: python
-
-  import os
-  import site
-  import sys
-
-  site.addsitedir("/srv/modoboa/env/lib/python2.7/site-packages")
-  sys.path.append("/srv/modoboa/instance")
-  os.environ["DJANGO_SETTINGS_MODULE"] = "instance.settings"
-
-  from django.apps import apps
-  from django.conf import settings
-  apps.populate(settings.INSTALLED_APPS)
-
-  from modoboa_imap_migration.models import Migration
-
-  def get_user_password(username):
-      """Retrieve a password from Modoboa's database."""
-      return Migration.objects.select_related().get(
-          mailbox__user__username=username
-      ).password
-
-Then, copy this file into the home directory of the user owning
-mailboxes (generally ``vmail``). For example:
-
-.. sourcecode:: shell
-
-  $ cp .offlineimap.py /srv/vmail
-  $ chown vmail:vmail /srv/vmail/.offlineimap.py
-
 Online settings
 ===============
 
@@ -148,12 +112,8 @@ You need to configure the access to the old IMAP server.
 All the configuration is done from the admin panel (*Modoboa >
 Parameters > IMAP migration*).
 
-.. |landscape| image:: https://landscape.io/github/modoboa/modoboa-imap-migration/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/modoboa/modoboa-imap-migration/master
-   :alt: Code Health
-
-.. |travis| image:: https://travis-ci.org/modoboa/modoboa-imap-migration.svg?branch=master
-   :target: https://travis-ci.org/modoboa/modoboa-imap-migration
+.. |ghw| image:: https://github.com/modoboa/modoboa-imap-migration/actions/workflows/plugin.yml/badge.svg
+   :target: https://github.com/modoboa/modoboa-imap-migration/actions/workflows/plugin.yml
 
 .. |codecov| image:: https://codecov.io/gh/modoboa/modoboa-imap-migration/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/modoboa/modoboa-imap-migration
