@@ -145,6 +145,7 @@ jobs:
           pip install -r requirements.txt
           cd modoboa_imap_migration
           django-admin compilemessages
+          cd ..
           python setup.py sdist bdist_wheel
       - name: Publish to Test PyPI
         if: endsWith(github.event.ref, '/master')
