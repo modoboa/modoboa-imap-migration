@@ -1,7 +1,7 @@
 Mailboxes migration using OfflineIMAP
 =====================================
 
-|ghw| |codecov|
+|gha| |codecov|
 
 A simple `Modoboa <http://modoboa.org/>`_ extension which provides a
 way to migrate existing mailboxes using `OfflineIMAP
@@ -112,7 +112,7 @@ You need to configure the access to the old IMAP server.
 All the configuration is done from the admin panel (*Modoboa >
 Parameters > IMAP migration*).
 
-.. |ghw| image:: https://github.com/modoboa/modoboa-imap-migration/actions/workflows/plugin.yml/badge.svg
+.. |gha| image:: https://github.com/modoboa/modoboa-imap-migration/actions/workflows/plugin.yml/badge.svg
    :target: https://github.com/modoboa/modoboa-imap-migration/actions/workflows/plugin.yml
 
 .. |codecov| image:: https://codecov.io/gh/modoboa/modoboa-imap-migration/branch/master/graph/badge.svg
