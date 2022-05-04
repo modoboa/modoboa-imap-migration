@@ -34,14 +34,14 @@ class DataMixin(object):
             password="Toto1234", mailbox=cls.mb, username="user@test.com")
 
 
-class ViewsTestCase(DataMixin, ModoTestCase):
-    """Views test cases."""
+# class ViewsTestCase(DataMixin, ModoTestCase):
+#     """Views test cases."""
 
-    def test_index(self):
-        """Test index view."""
-        url = reverse("modoboa_imap_migration:index")
-        response = self.client.get(url)
-        self.assertContains(response, '<div id="app">')
+#     def test_index(self):
+#         """Test index view."""
+#         url = reverse("modoboa_imap_migration:index")
+#         response = self.client.get(url)
+#         self.assertContains(response, '<div id="app">')
 
 
 class AuthenticationTestCase(DataMixin, ModoTestCase):
